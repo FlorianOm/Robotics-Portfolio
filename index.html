@@ -2,907 +2,1278 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
+  <title>Portfolio – Florian Omonsky | Robotik Vertriebspartner</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio – Florian Omonsky | Ihr Vertriebspartner für Robotik</title>
 
   <style>
     :root{
-      --bg-main:#BBBCB8;          /* warmes Grau: Gesamt-Hintergrund */
-      --bg-card:#F1F1F0;          /* Karten-Fläche */
-      --bg-card-2:#ECECEB;        /* zweite Karten-Fläche */
-      --bg-dark:#2E2E2E;          /* Anthrazit */
-      --text-main:#1F1F1F;        /* Schrift schwarz/dunkel */
-      --text-muted:#4A4A4A;       /* Sekundärtext */
-      --border-soft:rgba(0,0,0,.12);
-      --shadow:0 18px 50px rgba(0,0,0,.10);
-      --radius:22px;
+      /* Warmes Grau (dein Wunsch) */
+      --bg: #BBBcb8;
+
+      /* Premium-Surfaces */
+      --surface: rgba(255,255,255,0.70);
+      --card: rgba(255,255,255,0.86);
+      --glass: rgba(255,255,255,0.55);
+
+      /* Brand / Robotik Vibe (Logo-fit) */
+      --anth: #0f172a;                 /* tieferes Anthrazit */
+      --anth-2: #111827;
+      --accent: #35c8ff;               /* cyan-tech */
+      --accent-2: #6c7cff;             /* blue-tech */
+      --accent-3: #6fe0ff;             /* glow */
+      --ring: rgba(53,200,255,0.22);
+
+      /* Text */
+      --text: #111111;
+      --muted: rgba(17,17,17,0.78);
+      --muted-2: rgba(17,17,17,0.62);
+
+      /* UI */
+      --border: rgba(15,23,42,0.16);
+      --shadow: 0 18px 50px rgba(0,0,0,0.20);
+      --shadow-soft: 0 14px 30px rgba(0,0,0,0.12);
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
     }
 
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    html{ scroll-behavior:smooth; }
+    *{ box-sizing:border-box; margin:0; padding:0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     body{
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg-main);
-      color: var(--text-main);
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.65;
-      text-rendering: geometricPrecision;
     }
-
-    a{ color: var(--text-main); text-decoration:none; }
+    a{ color: var(--anth); text-decoration:none; }
     a:hover{ text-decoration:underline; }
 
-    /* Layout container */
-    .wrap{
-      width:min(1120px, calc(100% - 2.2rem));
-      margin:0 auto;
+    /* ===== Page background: dezentes AI Pattern ===== */
+    .bg-ai{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.85;
+      background:
+        radial-gradient(900px 360px at 18% 12%, rgba(53,200,255,0.20), transparent 60%),
+        radial-gradient(750px 320px at 82% 18%, rgba(108,124,255,0.16), transparent 58%),
+        radial-gradient(1000px 520px at 50% 110%, rgba(15,23,42,0.14), transparent 55%);
+      filter: saturate(1.08);
+    }
+    .bg-ai::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.35) 0 1px, transparent 1px),
+        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.25) 0 1px, transparent 1px),
+        radial-gradient(circle at 45% 20%, rgba(255,255,255,0.22) 0 1px, transparent 1px);
+      background-size: 120px 120px, 160px 160px, 200px 200px;
+      mix-blend-mode: overlay;
+      opacity: 0.35;
+      animation: drift 16s ease-in-out infinite alternate;
+    }
+    .bg-ai::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        linear-gradient(120deg, rgba(53,200,255,0.10), transparent 35%),
+        linear-gradient(300deg, rgba(108,124,255,0.08), transparent 40%);
+      opacity: 0.55;
+      filter: blur(0.4px);
+      animation: shimmer 10s ease-in-out infinite;
+    }
+    @keyframes drift{
+      from{ transform: translate3d(-6px,-4px,0) scale(1.02); }
+      to{ transform: translate3d(10px,6px,0) scale(1.04); }
+    }
+    @keyframes shimmer{
+      0%,100%{ transform: translateX(0); opacity:0.52; }
+      50%{ transform: translateX(10px); opacity:0.62; }
     }
 
-    /* HEADER */
-    header.site-header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background: rgba(187,188,184,.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-soft);
+    /* ===== Header: Name oben, Nav darunter ===== */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(187,188,184,0.74);
+      border-bottom: 1px solid var(--border);
     }
-
     .header-inner{
-      padding: 1.3rem 0 0.9rem;
-      text-align:center;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 1.1rem 1.2rem 0.9rem;
+      position: relative;
+      z-index: 1;
     }
 
-    .site-title h1{
-      font-size: clamp(2.25rem, 4vw, 3.15rem);
-      letter-spacing: 0.03em;
-      font-weight: 750;
+    .brand-top{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 0.9rem;
+      padding: 0.15rem 0 0.85rem;
+    }
+    .brand-logo{
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 18px rgba(0,0,0,0.20));
+    }
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      gap: 0.05rem;
+      text-align:left;
+    }
+    .site-name{
+      font-size: clamp(1.55rem, 1.2vw + 1.2rem, 2.2rem);
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      color: var(--anth);
+      line-height: 1.1;
+    }
+    .site-sub{
+      font-size: 0.95rem;
+      color: rgba(17,17,17,0.82);
+      letter-spacing: 0.02em;
     }
 
-    .site-title p{
-      margin-top: .25rem;
-      font-size: 1.02rem;
-      color: var(--text-muted);
-    }
-
-    nav.main-nav{
-      margin-top: 1rem;
+    .top-actions{
       display:flex;
       justify-content:center;
-      gap: 1.25rem 1.7rem;
-      flex-wrap:wrap;
-      padding-bottom: .65rem;
+      margin-bottom: 0.55rem;
+      gap: 0.6rem;
+    }
+    .lang-toggle{
+      display:inline-flex;
+      border: 1px solid rgba(15,23,42,0.18);
+      background: rgba(255,255,255,0.35);
+      border-radius: 999px;
+      overflow:hidden;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+    }
+    .lang-toggle button{
+      border:0;
+      background: transparent;
+      padding: 0.42rem 0.75rem;
+      cursor:pointer;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(17,17,17,0.75);
+      font-size: 0.78rem;
+    }
+    .lang-toggle button.active{
+      background: rgba(255,255,255,0.70);
+      color: var(--anth);
     }
 
-    nav.main-nav a{
+    nav{
+      display:flex;
+      justify-content:center;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      padding-bottom: 0.35rem;
+    }
+    nav a{
+      font-size: 0.86rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: .14em;
-      font-size: .78rem;
-      color: var(--bg-dark);
-      padding: .45rem .75rem;
+      padding: 0.45rem 0.85rem;
       border-radius: 999px;
       border: 1px solid transparent;
-      transition: all .18s ease;
+      background: rgba(255,255,255,0.35);
+      color: rgba(17,17,17,0.86);
     }
-
-    nav.main-nav a:hover{
-      border-color: var(--border-soft);
-      background: rgba(255,255,255,.35);
+    nav a:hover{
+      border-color: rgba(15,23,42,0.20);
+      background: rgba(255,255,255,0.55);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.10);
       text-decoration:none;
     }
 
-    /* HERO */
-    .hero{
-      padding: 2.6rem 0 1.8rem;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 360px 1fr;
-      gap: 2.2rem;
-      align-items:center;
-      background: rgba(255,255,255,.35);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius);
-      padding: 2.2rem;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-photo{
-      width: 320px;
-      height: 320px;
+    /* ===== Main wrapper ===== */
+    main{
+      max-width: 1160px;
       margin: 0 auto;
-      border-radius: 999px;
-      background: linear-gradient(145deg, rgba(46,46,46,.22), rgba(255,255,255,.35));
-      border: 1px solid var(--border-soft);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      padding: 1.7rem 1.2rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      display:grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+      gap: 1.6rem;
+      align-items: stretch;
+      padding: 1.6rem;
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      position: relative;
       overflow:hidden;
-      position:relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.18), transparent 35%),
+        radial-gradient(900px 360px at 15% 5%, rgba(53,200,255,0.18), transparent 60%),
+        radial-gradient(700px 320px at 85% 12%, rgba(108,124,255,0.14), transparent 60%);
+      pointer-events:none;
+      opacity: 0.85;
     }
 
-    .hero-photo .photo-label{
-      text-align:center;
-      font-size: .88rem;
-      color: var(--bg-dark);
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: 0 1rem;
-    }
+    .hero-content{ position:relative; }
 
-    /* Wenn du ein Foto einfügst:
-       <img src="profil.jpg" alt="Florian Omonsky" />
-    */
-    .hero-photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-
-    .hero-copy .kicker{
+    .hero-badge{
       display:inline-flex;
       align-items:center;
-      gap:.6rem;
-      padding:.35rem .9rem;
-      border-radius:999px;
-      background: rgba(255,255,255,.45);
-      border: 1px solid var(--border-soft);
-      color: var(--bg-dark);
-      font-size: .86rem;
-      margin-bottom: 1.05rem;
+      gap: 0.55rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(15,23,42,0.16);
+      font-size: 0.86rem;
+      color: rgba(17,17,17,0.82);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.10);
+      margin-bottom: 1rem;
     }
-
     .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: var(--bg-dark);
-      box-shadow: 0 0 0 5px rgba(46,46,46,.12);
+      width: 10px; height: 10px;
+      border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 0 6px var(--ring);
     }
 
-    .hero-copy h2{
-      font-size: clamp(2.0rem, 3.2vw, 2.65rem);
-      line-height:1.12;
-      margin-bottom: .9rem;
-      letter-spacing:.01em;
+    .hero h1{
+      font-size: clamp(2.1rem, 2.2vw + 1.3rem, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      color: var(--anth);
+      margin-bottom: 0.65rem;
     }
-
-    .hero-copy p.lead{
-      color: var(--text-muted);
+    .hero h1 .accent-text{
+      background: linear-gradient(90deg, var(--anth) 0%, #0f172a 45%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-kicker{
       font-size: 1.02rem;
-      max-width: 54ch;
-      margin-bottom: 1.2rem;
+      color: rgba(17,17,17,0.80);
+      margin-bottom: 0.9rem;
+      max-width: 52rem;
+    }
+    .hero-sub{
+      max-width: 50rem;
+      font-size: 1.02rem;
+      color: rgba(17,17,17,0.80);
+      margin-bottom: 1.1rem;
     }
 
     .pill-row{
       display:flex;
       flex-wrap:wrap;
-      gap:.6rem;
-      margin: 1.05rem 0 1.25rem;
+      gap: 0.55rem;
+      margin: 0.8rem 0 1.25rem;
     }
-
     .pill{
-      background: rgba(241,241,240,.95);
-      border: 1px solid var(--border-soft);
-      color: var(--text-main);
+      padding: 0.5rem 0.9rem;
       border-radius: 999px;
-      padding: .6rem 1.05rem;
-      font-size: .92rem;
-      white-space: normal;
+      border: 1px solid rgba(15,23,42,0.18);
+      background: rgba(255,255,255,0.60);
+      color: rgba(17,17,17,0.88);
+      font-size: 0.92rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      white-space: nowrap;
     }
-
     .pill.strong{
-      background: rgba(46,46,46,.10);
-      border-color: rgba(46,46,46,.22);
-      font-weight: 650;
+      border-color: rgba(53,200,255,0.45);
+      box-shadow: 0 12px 26px rgba(53,200,255,0.16);
+      background: rgba(255,255,255,0.70);
+      font-weight: 700;
     }
 
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
-      gap:.85rem;
-      align-items:center;
-      margin-bottom: .8rem;
+      gap: 0.75rem;
+      margin-bottom: 0.8rem;
     }
-
     .btn{
       display:inline-flex;
       align-items:center;
-      gap:.55rem;
-      padding: .78rem 1.15rem;
+      justify-content:center;
+      gap: 0.5rem;
+      padding: 0.78rem 1.18rem;
       border-radius: 999px;
-      border: 1px solid var(--border-soft);
-      background: rgba(255,255,255,.55);
-      color: var(--bg-dark);
-      font-weight: 650;
-      font-size: .95rem;
+      border: 1px solid rgba(15,23,42,0.22);
+      background: rgba(255,255,255,0.65);
+      color: var(--anth);
+      font-weight: 800;
+      font-size: 0.98rem;
       cursor:pointer;
-      transition: all .18s ease;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 12px 26px rgba(0,0,0,.10);
       text-decoration:none;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
     }
-
+    .btn:hover{ text-decoration:none; transform: translateY(-1px); }
     .btn.primary{
-      background: var(--bg-dark);
-      color: #fff;
-      border-color: rgba(0,0,0,.25);
+      border-color: transparent;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--anth) 0%, #0f172a 60%, rgba(53,200,255,0.35) 140%);
+      box-shadow: 0 20px 42px rgba(0,0,0,0.22);
     }
-
+    .btn.primary:hover{
+      box-shadow: 0 24px 52px rgba(0,0,0,0.26);
+      filter: brightness(1.02);
+    }
     .hero-note{
-      color: var(--text-muted);
-      font-size: .92rem;
-      max-width: 70ch;
+      font-size: 0.94rem;
+      color: rgba(17,17,17,0.74);
     }
 
-    /* SECTION HEADERS */
-    section{
-      padding: 1.7rem 0;
+    /* ===== Right side: Foto + Profilbox ===== */
+    .hero-right{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      gap: 1rem;
+    }
+    .hero-photo{
+      border-radius: var(--radius-lg);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,0.20);
+      background: rgba(255,255,255,0.55);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+    }
+    .hero-photo img{
+      width: 100%;
+      height: auto;
+      display:block;
+      object-fit: cover;
     }
 
-    .section-head{
-      margin: 1.1rem 0 1.2rem;
+    .hero-card{
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(15,23,42,0.16);
+      padding: 1.05rem 1.05rem;
+      box-shadow: var(--shadow-soft);
+    }
+    .hero-card h2{
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--anth);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
     }
 
-    .section-head h3{
-      font-size: 1.35rem;
-      letter-spacing: .02em;
-      margin-bottom: .35rem;
+    .hero-meta{
+      display:grid;
+      gap: 0.55rem;
+      font-size: 0.95rem;
+      margin-bottom: 0.9rem;
+    }
+    .meta-row{
+      display:flex;
+      justify-content:space-between;
+      gap: 0.9rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.60);
+      border: 1px solid rgba(15,23,42,0.12);
+    }
+    .meta-row b{ color: rgba(17,17,17,0.78); font-weight: 900; }
+
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+    .stat{
+      min-height: 132px; /* größer -> kein Überlauf */
+      border-radius: 16px;
+      padding: 0.9rem 0.9rem;
+      background: rgba(255,255,255,0.70);
+      border: 1px dashed rgba(15,23,42,0.22);
+    }
+    .stat strong{
+      display:block;
+      color: var(--anth);
+      font-size: 1.02rem;
+      margin-bottom: 0.35rem;
+      font-weight: 900;
+    }
+    .stat span{
+      display:block;
+      font-size: 0.92rem;
+      color: rgba(17,17,17,0.76);
+      line-height: 1.35;
+      word-break: break-word;
+      hyphens: auto;
     }
 
-    .section-head p{
-      color: var(--text-muted);
-      font-size: .98rem;
+    /* ===== Sections ===== */
+    .section{ margin-top: 2.1rem; }
+    .section-header{ margin-bottom: 1rem; }
+    .section-title{
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--anth);
+      margin-bottom: 0.25rem;
+    }
+    .section-sub{
+      color: rgba(17,17,17,0.78);
+      font-size: 1.02rem;
+      max-width: 60rem;
     }
 
-    /* Cards / Grids */
     .grid-2{
       display:grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem;
+      gap: 1.2rem;
     }
 
     .card{
-      background: var(--bg-card);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius);
-      padding: 1.35rem 1.35rem;
-      box-shadow: 0 10px 24px rgba(0,0,0,.07);
+      background: var(--card);
+      border: 1px solid rgba(15,23,42,0.14);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.25rem;
+      box-shadow: var(--shadow-soft);
     }
-
-    .card h4{
-      font-size: 1.05rem;
-      margin-bottom: .65rem;
+    .card h3{
+      font-size: 1.08rem;
+      font-weight: 900;
+      color: var(--anth);
+      margin-bottom: 0.6rem;
     }
-
-    .card p{ color: var(--text-muted); margin-bottom: .65rem; }
-
+    .card p{
+      color: rgba(17,17,17,0.80);
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
     .card ul{
       list-style:none;
+      padding-left: 0;
       display:grid;
-      gap:.45rem;
-      margin-top:.35rem;
+      gap: 0.35rem;
     }
-
-    .card li{
+    .card ul li{
       position:relative;
-      padding-left:1.15rem;
-      color: var(--text-muted);
+      padding-left: 1.15rem;
+      color: rgba(17,17,17,0.78);
+      font-size: 1rem;
     }
-
-    .card li::before{
+    .card ul li::before{
       content:"•";
       position:absolute;
       left:0;
       top:0;
-      color: var(--bg-dark);
+      color: var(--accent);
+      font-weight: 900;
     }
 
     .tag-row{
       display:flex;
       flex-wrap:wrap;
-      gap:.5rem;
-      margin-top: .8rem;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
     }
-
     .tag{
-      background: rgba(255,255,255,.45);
-      border: 1px solid var(--border-soft);
+      padding: 0.38rem 0.75rem;
       border-radius: 999px;
-      padding: .42rem .8rem;
-      font-size: .82rem;
-      color: var(--bg-dark);
+      background: rgba(255,255,255,0.60);
+      border: 1px solid rgba(15,23,42,0.14);
+      color: rgba(17,17,17,0.80);
+      font-size: 0.92rem;
+      box-shadow: 0 10px 18px rgba(0,0,0,0.08);
     }
 
-    /* Profile Summary – bigger boxes */
-    .summary{
-      margin-top: 1.2rem;
-      background: rgba(46,46,46,.08);
-      border: 1px solid rgba(46,46,46,.18);
-      border-radius: var(--radius);
-      padding: 1.25rem;
-    }
-
-    .summary-top{
+    /* ===== Timeline ===== */
+    .timeline{ display:grid; gap: 1rem; }
+    .timeline-item{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1.1rem;
-    }
-
-    .summary-top .kv{
-      background: rgba(255,255,255,.45);
-      border: 1px solid var(--border-soft);
-      border-radius: 16px;
-      padding: .95rem 1rem;
-    }
-    .kv .k{ font-size:.82rem; color: var(--text-muted); letter-spacing:.04em; text-transform:uppercase; }
-    .kv .v{ margin-top:.2rem; font-size:1.02rem; font-weight:650; color: var(--bg-dark); }
-
-    .stats{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 1rem;
-    }
-
-    .stat{
-      min-height: 150px;
-      background: rgba(255,255,255,.55);
-      border: 1px solid var(--border-soft);
-      border-radius: 18px;
-      padding: 1.05rem 1.05rem;
-    }
-
-    .stat strong{
-      display:block;
-      font-size: 1.02rem;
-      margin-bottom: .4rem;
-      color: var(--bg-dark);
-      letter-spacing:.01em;
-    }
-
-    .stat span{
-      display:block;
-      color: var(--text-muted);
-      font-size: .95rem;
-      line-height: 1.55;
-      white-space: normal;
-      word-break: break-word;
-    }
-
-    /* Timeline */
-    .timeline{
-      display:grid;
-      gap: 1rem;
-    }
-
-    .t-item{
-      display:grid;
-      grid-template-columns: 140px 1fr;
+      grid-template-columns: 140px minmax(0, 1fr);
       gap: 1rem;
       align-items:start;
     }
-
-    .t-date{
-      font-size: .9rem;
-      color: var(--text-muted);
-      padding-top: .25rem;
-      letter-spacing: .02em;
+    .timeline-date{
+      color: rgba(17,17,17,0.70);
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      padding-top: 0.5rem;
     }
-
-    .t-card{
-      background: var(--bg-card-2);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius);
-      padding: 1.2rem 1.25rem;
-      box-shadow: 0 10px 24px rgba(0,0,0,.06);
+    .timeline-content{
+      background: var(--card);
+      border: 1px solid rgba(15,23,42,0.14);
+      border-radius: var(--radius-lg);
+      padding: 1.05rem 1.1rem;
+      box-shadow: var(--shadow-soft);
     }
-
-    .t-card strong{
+    .timeline-content strong{
       display:block;
-      font-size: 1.02rem;
-      margin-bottom: .15rem;
-      color: var(--bg-dark);
-    }
-
-    .t-card .sub{
-      color: var(--text-muted);
-      font-size: .92rem;
-      margin-bottom: .65rem;
-    }
-
-    .t-card ul{
-      list-style:none;
-      display:grid;
-      gap:.4rem;
-    }
-
-    .t-card li{
-      position:relative;
-      padding-left:1.15rem;
-      color: var(--text-muted);
-    }
-    .t-card li::before{
-      content:"›";
-      position:absolute;
-      left:0;
-      top:0;
-      color: var(--bg-dark);
-      font-weight:800;
-    }
-
-    /* CONTACT – not ugly */
-    .contact-panel{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 1.25rem;
-      align-items:stretch;
-    }
-
-    .contact-lines{
-      display:grid;
-      gap: .65rem;
-      margin-top: .65rem;
-    }
-
-    .line{
-      display:flex;
-      gap:.8rem;
-      align-items:center;
-      padding: .85rem 1rem;
-      border-radius: 16px;
-      border: 1px solid var(--border-soft);
-      background: rgba(255,255,255,.55);
-    }
-
-    .ico{
-      width:40px; height:40px;
-      border-radius: 999px;
-      display:grid;
-      place-items:center;
-      background: rgba(46,46,46,.10);
-      border: 1px solid rgba(46,46,46,.18);
       font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--anth);
+      margin-bottom: 0.15rem;
     }
-
-    .line .meta{
+    .timeline-content span{
+      display:block;
+      color: rgba(17,17,17,0.74);
+      margin-bottom: 0.65rem;
+      font-size: 0.98rem;
+    }
+    .badge-row{
       display:flex;
-      flex-direction:column;
-      gap:.1rem;
-      min-width:0;
+      flex-wrap:wrap;
+      gap: 0.45rem;
+      margin-top: 0.8rem;
+    }
+    .badge{
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,0.14);
+      background: rgba(255,255,255,0.60);
+      color: rgba(17,17,17,0.78);
+      font-size: 0.9rem;
     }
 
-    .meta .label{
-      font-size:.78rem;
-      color: var(--text-muted);
-      text-transform:uppercase;
-      letter-spacing:.12em;
+    /* ===== Contact + Map ===== */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.2rem;
     }
-
-    .meta .value{
-      font-size: 1rem;
-      font-weight:650;
-      color: var(--bg-dark);
-      overflow-wrap:anywhere;
-    }
-
-    .cta-box{
-      background: rgba(46,46,46,.10);
-      border: 1px solid rgba(46,46,46,.18);
-      border-radius: var(--radius);
-      padding: 1.25rem;
+    .contact-item{
       display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap: 1rem;
+      align-items:center;
+      gap: 0.9rem;
+      padding: 0.95rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(15,23,42,0.14);
+      background: rgba(255,255,255,0.60);
+      box-shadow: 0 12px 22px rgba(0,0,0,0.10);
+      margin-bottom: 0.8rem;
     }
-
-    .cta-box h4{ color: var(--bg-dark); font-size: 1.05rem; }
-    .cta-box p{ color: var(--text-muted); }
-
-    .cta-actions{
+    .icon{
+      width: 44px; height: 44px;
+      border-radius: 999px;
       display:flex;
-      flex-direction:column;
-      gap: .75rem;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(circle at 30% 30%, rgba(53,200,255,0.35), rgba(255,255,255,0.65));
+      border: 1px solid rgba(15,23,42,0.14);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.12);
+      flex: 0 0 auto;
+    }
+    .contact-item small{
+      display:block;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: rgba(17,17,17,0.62);
+      margin-bottom: 0.25rem;
+      font-size: 0.78rem;
+    }
+    .contact-item b{
+      display:block;
+      font-size: 1.05rem;
+      color: var(--anth);
+      font-weight: 900;
     }
 
-    /* FOOTER */
+    .map-box{
+      width: 100%;
+      min-height: 320px;
+      border-radius: var(--radius-lg);
+      overflow:hidden;
+      border: 1px solid rgba(15,23,42,0.14);
+      background: rgba(255,255,255,0.55);
+      box-shadow: var(--shadow-soft);
+    }
+    .map-box iframe{
+      width:100%;
+      height:100%;
+      min-height: 320px;
+      border:0;
+      display:block;
+    }
+
     footer{
-      padding: 2rem 0 2.4rem;
       text-align:center;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border-soft);
-      margin-top: 2rem;
+      padding: 1.25rem 1rem 2rem;
+      color: rgba(17,17,17,0.72);
+      font-weight: 800;
+      position: relative;
+      z-index: 1;
     }
 
-    /* Responsive */
+    /* ===== Responsive ===== */
     @media (max-width: 980px){
-      .hero-grid{ grid-template-columns: 1fr; text-align:center; }
-      .hero-copy p.lead{ margin-left:auto; margin-right:auto; }
-      .hero-actions{ justify-content:center; }
-      .summary-top{ grid-template-columns: 1fr; }
+      .hero{ grid-template-columns: 1fr; }
+      .stats{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+    }
+    @media (max-width: 760px){
       .grid-2{ grid-template-columns: 1fr; }
+      .timeline-item{ grid-template-columns: 1fr; }
+      .contact-grid{ grid-template-columns: 1fr; }
       .stats{ grid-template-columns: 1fr; }
-      .t-item{ grid-template-columns: 1fr; }
-      .contact-panel{ grid-template-columns: 1fr; }
+      .stat{ min-height:auto; }
+      .pill{ white-space: normal; }
     }
   </style>
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <div class="site-title">
-        <h1>Florian Omonsky</h1>
-        <p>Freier Vertriebspartner · Robotik & Automatisierung</p>
+  <div class="bg-ai" aria-hidden="true"></div>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand-top">
+        <img src="assets/images/logo.png" alt="Robotic Solution Logo" class="brand-logo">
+        <div class="brand-text">
+          <div class="site-name">Florian Omonsky</div>
+          <div class="site-sub" data-i18n="siteSub">Freier Vertriebspartner · Robotik & Automatisierung</div>
+        </div>
       </div>
 
-      <nav class="main-nav" aria-label="Hauptnavigation">
-        <a href="#about">Über mich</a>
-        <a href="#skills">Kompetenzen</a>
-        <a href="#motivation">Motivation</a>
-        <a href="#experience">Berufserfahrung</a>
-        <a href="#education">Ausbildung</a>
-        <a href="#projects">Projekte</a>
-        <a href="#contact">Kontakt</a>
+      <div class="top-actions">
+        <div class="lang-toggle" role="tablist" aria-label="Language switch">
+          <button id="btnDE" class="active" type="button">DE</button>
+          <button id="btnEN" type="button">EN</button>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about" data-i18n="navAbout">Über mich</a>
+        <a href="#skills" data-i18n="navSkills">Kompetenzen</a>
+        <a href="#motivation" data-i18n="navMotivation">Motivation</a>
+        <a href="#experience" data-i18n="navExperience">Berufserfahrung</a>
+        <a href="#education" data-i18n="navEducation">Ausbildung</a>
+        <a href="#projects" data-i18n="navProjects">Projekte</a>
+        <a href="#contact" data-i18n="navContact">Kontakt</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <!-- HERO / ÜBER MICH -->
-    <section id="about" class="hero">
-      <div class="hero-grid">
+  <main>
+    <!-- HERO / ABOUT -->
+    <section class="hero" id="about">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          <span data-i18n="heroBadge">Staatlich geprüfter Techniker · Prozessautomation & Robotik-Vertrieb</span>
+        </div>
+
+        <h1 data-i18n="heroTitle">
+          Robotik-Vertrieb, der <span class="accent-text">liefert</span>.
+        </h1>
+
+        <p class="hero-kicker" data-i18n="heroKicker">
+          Technisch fundiert. Vertriebsstark. Fokus auf echten Kundennutzen – von der ersten Demo bis zur Umsetzung.
+        </p>
+
+        <p class="hero-sub" data-i18n="heroSub">
+          Ich verbinde technische Tiefe aus der Prozess- und Energieautomation mit Praxis im Service und Außendienst –
+          diese Kombination nutze ich, um Robotiklösungen erfolgreich zu vertreiben und zu implementieren.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill strong" data-i18n="pill1">Staatlich geprüfter Techniker – Prozessautomation (Abschluss 2025)</span>
+          <span class="pill" data-i18n="pill2">Servicetechniker Ladeinfrastruktur bei Tesla seit 01/2021</span>
+          <span class="pill" data-i18n="pill3">kompetent, sympathisch, lösungsorientiert</span>
+          <span class="pill" data-i18n="pill4">Stark in Umsetzung, Kommunikation und Vertrieb</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact" data-i18n="cta1">Jetzt Austausch anfragen <span>→</span></a>
+          <a class="btn" href="#experience" data-i18n="cta2">Berufserfahrung ansehen</a>
+        </div>
+
+        <p class="hero-note" data-i18n="heroNote">
+          Ideal für Hersteller, die einen technisch starken, eigenständigen Vertrieb im DACH-Raum aufbauen oder verstärken wollen.
+        </p>
+      </div>
+
+      <div class="hero-right">
         <div class="hero-photo">
-          <!-- Wenn du dein Foto hast:
-          <img src="profil.jpg" alt="Florian Omonsky" />
-          -->
-          <div class="photo-label">FOTO<br>PLATZHALTER</div>
+          <img src="assets/images/portrait.jpg" alt="Florian Omonsky – Portrait">
         </div>
 
-        <div class="hero-copy">
-          <div class="kicker">
-            <span class="dot"></span>
-            <span>Staatlich geprüfter Techniker · Prozessautomation & Robotik-Vertrieb</span>
+        <aside class="hero-card">
+          <h2 data-i18n="profileTitle">Profil auf einen Blick</h2>
+
+          <div class="hero-meta">
+            <div class="meta-row"><b data-i18n="profileLocationLabel">Standort</b><span data-i18n="profileLocationVal">Kassel</span></div>
+            <div class="meta-row"><b data-i18n="profileFocusLabel">Fokus</b><span data-i18n="profileFocusVal">Robotik, Humanoide Robotik, Automatisierung</span></div>
           </div>
 
-          <h2>Freier Vertriebspartner für Robotik</h2>
-
-          <p class="lead">
-            Ich verbinde technische Tiefe aus der Prozess- und Energieautomation mit Praxis im Service und Außendienst –
-            diese Kombination nutze ich, um Robotiklösungen erfolgreich zu vertreiben und nachhaltig zu implementieren.
-          </p>
-
-          <div class="pill-row">
-            <span class="pill strong">Staatlich geprüfter Techniker – Prozessautomation (Abschluss 2025)</span>
-            <span class="pill">Servicetechniker Ladeinfrastruktur bei Tesla seit 01/2021</span>
-            <span class="pill">Kompetent, sympathisch, lösungsorientiert</span>
-            <span class="pill">Stark in Umsetzung, Kommunikation und Vertrieb</span>
-          </div>
-
-          <div class="hero-actions">
-            <a class="btn primary" href="#contact">Jetzt Austausch anfragen <span>→</span></a>
-            <a class="btn" href="#experience">Berufserfahrung ansehen</a>
-          </div>
-
-          <p class="hero-note">
-            Für Hersteller, die einen technisch starken, eigenständigen Vertrieb im DACH-Raum aufbauen oder international skalieren möchten.
-          </p>
-
-          <!-- Profil auf einen Blick (größer, text passt) -->
-          <div class="summary" aria-label="Profil auf einen Blick">
-            <div class="summary-top">
-              <div class="kv">
-                <div class="k">Standort</div>
-                <div class="v">Kassel</div>
-              </div>
-              <div class="kv">
-                <div class="k">Fokus</div>
-                <div class="v">Robotik · Humanoide Robotik · Automatisierung</div>
-              </div>
+          <div class="stats">
+            <div class="stat">
+              <strong data-i18n="stat1Title">Technik</strong>
+              <span data-i18n="stat1Body">Prozessautomation, Energieverteilung</span>
             </div>
-
-            <div class="stats">
-              <div class="stat">
-                <strong>Technik</strong>
-                <span>Prozessautomation, Energieverteilung, Steuerungs-/Regelungstechnik</span>
-              </div>
-              <div class="stat">
-                <strong>Praxis</strong>
-                <span>Inbetriebnahme, Fehleranalyse, Behebung technischer Störungen, Kundenkontakt</span>
-              </div>
-              <div class="stat">
-                <strong>Vertrieb</strong>
-                <span>Lead-Aufbau, Beratung, Pilotprojekte, Einführung beim Kunden</span>
-              </div>
+            <div class="stat">
+              <strong data-i18n="stat2Title">Praxis</strong>
+              <span data-i18n="stat2Body">Inbetriebnahme, Service, Fehlersuche & Behebung</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="stat3Title">Vertrieb</strong>
+              <span data-i18n="stat3Body">Aufbau Robotik-Vertrieb, Networking & Leads</span>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <!-- KOMPETENZEN (vor Motivation!) -->
-    <section id="skills">
-      <div class="section-head">
-        <h3>Fachliche & persönliche Kompetenzen</h3>
-        <p>Technische Tiefe, klare Kommunikation – und ein Vertrieb, der beim Kunden wirklich funktioniert.</p>
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="skillsTitle">Fachliche & persönliche Kompetenzen</h2>
+        <p class="section-sub" data-i18n="skillsSub">Technik auf hohem Niveau, kombiniert mit klarer Kommunikation und Vertriebsdenken.</p>
       </div>
 
       <div class="grid-2">
         <article class="card">
-          <h4>Technische Kompetenzen</h4>
+          <h3 data-i18n="skillsTechTitle">Technische Kompetenzen</h3>
           <ul>
-            <li>Staatlich geprüfter Techniker in der <strong>Prozessautomation</strong></li>
-            <li>Robotik-Grundlagen & Systemverständnis (Sensorik, Aktorik, Schnittstellen)</li>
-            <li>Erfahrung mit Energie- & Ladeinfrastruktur, Serviceprozessen und Feldtechnik</li>
-            <li>Sicher im Lesen technischer Dokumentation und strukturiertem Troubleshooting</li>
-            <li>Praxisnahe Bewertung von Einsatzszenarien & Umgebungsanforderungen</li>
+            <li data-i18n="skillsTech1">Staatlich geprüfter Techniker in der <strong>Prozessautomation</strong></li>
+            <li data-i18n="skillsTech2">Grundlagen der Robotik (Servicerobotik / Humanoide Systeme)</li>
+            <li data-i18n="skillsTech3">Erfahrung mit Energie- & Ladeinfrastruktur, Steuerungs- und Regelungstechnik</li>
+            <li data-i18n="skillsTech4">Sicher im Lesen und Bewerten technischer Dokumentation & Normen</li>
+            <li data-i18n="skillsTech5">Grundverständnis von Sensorik, Aktorik und Schnittstellen (Feldbus, Ethernet, Cloud)</li>
           </ul>
           <div class="tag-row">
-            <span class="tag">Automation</span>
-            <span class="tag">Troubleshooting</span>
-            <span class="tag">Integration</span>
+            <span class="tag">Prozessautomation</span>
+            <span class="tag">Robotik</span>
+            <span class="tag">Technische Analyse</span>
           </div>
         </article>
 
         <article class="card">
-          <h4>Persönliche Stärken</h4>
+          <h3 data-i18n="skillsSoftTitle">Persönliche Stärken</h3>
           <ul>
-            <li>Direkt, authentisch, lösungsorientiert – ohne Buzzword-Show</li>
-            <li>Kommunikationsstark: Technik & Entscheider auf Augenhöhe</li>
-            <li>Eigenverantwortlich, zuverlässig, sauber in der Umsetzung</li>
-            <li>Lernstark bei neuen Robotik-Systemen & Produkten</li>
-            <li>Vertrieblich klar: Nutzen, ROI, Pilot – Abschluss</li>
+            <li data-i18n="skillsSoft1">Direkt, authentisch und lösungsorientiert</li>
+            <li data-i18n="skillsSoft2">Hohe Lernbereitschaft für neue Robotersysteme</li>
+            <li data-i18n="skillsSoft3">Eigenverantwortliches Arbeiten als freier Handelsvertreter</li>
+            <li data-i18n="skillsSoft4">Kommunikationsstark – von der Werkstatt bis zur Geschäftsleitung</li>
+            <li data-i18n="skillsSoft5">Zielstrebig, ausdauernd, verbindlich in der Umsetzung</li>
           </ul>
           <div class="tag-row">
-            <span class="tag">Vertrieb</span>
-            <span class="tag">Kommunikation</span>
-            <span class="tag">Umsetzung</span>
+            <span class="tag" data-i18n="tagSales">Vertrieb</span>
+            <span class="tag" data-i18n="tagComms">Kommunikation</span>
+            <span class="tag" data-i18n="tagOwnership">Eigenverantwortung</span>
+            <span class="tag" data-i18n="tagResults">Ergebnisorientierung</span>
           </div>
         </article>
       </div>
     </section>
 
     <!-- MOTIVATION -->
-    <section id="motivation">
-      <div class="section-head">
-        <h3>Motivation & Mehrwert im Robotik-Vertrieb</h3>
-        <p>Warum Robotik – und warum ich als Partner den Unterschied mache.</p>
+    <section class="section" id="motivation">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="motTitle">Motivation & Mehrwert im Robotik-Vertrieb</h2>
+        <p class="section-sub" data-i18n="motSub">Warum Florian Omonsky als Vertriebspartner im Bereich Robotik – und welchen Nutzen ich für Hersteller biete.</p>
       </div>
 
       <div class="grid-2">
         <article class="card">
-          <h4>Motivation</h4>
-          <p>
+          <h3 data-i18n="motBox1Title">Motivation</h3>
+          <p data-i18n="motBox1P1">
             Robotik und Automatisierung sind für mich die logische Weiterentwicklung industrieller Prozesse.
             Durch meinen Hintergrund in der Prozessautomation erkenne ich schnell, wo Roboter echten Mehrwert schaffen –
             und wo ein qualifizierter, praxisnaher Vertrieb gebraucht wird.
           </p>
-          <p>
+          <p data-i18n="motBox1P2">
             Mein Ziel ist es, Robotiklösungen nicht nur zu verkaufen, sondern nachhaltig erfolgreich zu machen –
             mit klarer Analyse von Einsatzszenarien, Wirtschaftlichkeit und technischen Rahmenbedingungen.
           </p>
           <div class="tag-row">
-            <span class="tag">Praxisnahe Beratung</span>
-            <span class="tag">Langfristige Partnerschaft</span>
-            <span class="tag">Transparenz</span>
+            <span class="tag" data-i18n="motTag1">Praxisnahe Beratung</span>
+            <span class="tag" data-i18n="motTag2">Langfristige Partnerschaft</span>
+            <span class="tag" data-i18n="motTag3">Transparente Kommunikation</span>
           </div>
         </article>
 
         <article class="card">
-          <h4>Ihr Vorteil als Hersteller</h4>
-          <p>
+          <h3 data-i18n="motBox2Title">Ihr Vorteil als Hersteller</h3>
+          <p data-i18n="motBox2P1">
             Durch meine beruflichen Qualifikationen kommuniziere ich nicht nur mit Technikern,
             sondern auch mit Entscheidern (Geschäftsführung, Einkauf, Objektleitung) auf Augenhöhe.
-            Ich übersetze technische Komplexität in klaren Kundennutzen.
+            Außerdem kann ich technische Komplexität in klaren Kundennutzen übersetzen.
           </p>
           <ul>
-            <li>Qualifizierte Machbarkeitsbewertung beim Kunden</li>
-            <li>Übersetzung von Features in greifbare Vorteile</li>
-            <li>Begleitung von Pilotprojekten und Einführungsphasen</li>
-            <li>Aufbau stabiler Kundenbeziehungen & Netzwerk</li>
+            <li data-i18n="motLi1">Qualifizierte Machbarkeitsbewertung beim Kunden</li>
+            <li data-i18n="motLi2">Übersetzung von Features in greifbare Vorteile</li>
+            <li data-i18n="motLi3">Begleitung von Pilotprojekten und Einführungsphasen</li>
+            <li data-i18n="motLi4">Aufbau eines regionalen Netzwerks und stabiler Kundenbeziehungen</li>
           </ul>
           <div class="tag-row">
-            <span class="tag">Pilotprojekte</span>
-            <span class="tag">DACH-Raum</span>
-            <span class="tag">Industrie</span>
+            <span class="tag" data-i18n="motTag4">Pilotprojekte</span>
+            <span class="tag" data-i18n="motTag5">DACH-Raum</span>
+            <span class="tag" data-i18n="motTag6">Objekt- & Industrie-Kunden</span>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- BERUFSERFAHRUNG -->
-    <section id="experience">
-      <div class="section-head">
-        <h3>Berufserfahrung (Auszug)</h3>
-        <p>Stationen, die meine Eignung für anspruchsvollen Robotik-Vertrieb unterstreichen.</p>
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="expTitle">Berufserfahrung</h2>
+        <p class="section-sub" data-i18n="expSub">Stationen, die meine Eignung für anspruchsvollen Robotik-Vertrieb unterstreichen.</p>
       </div>
 
       <div class="timeline">
-        <div class="t-item">
-          <div class="t-date">seit 01/2021</div>
-          <div class="t-card">
-            <strong>Servicetechniker Ladeinfrastruktur</strong>
-            <div class="sub">Tesla – Supercharger / Ladesäulen (Region Deutschland)</div>
+        <div class="timeline-item">
+          <div class="timeline-date" data-i18n="expDate1">seit 01/2021</div>
+          <div class="timeline-content">
+            <strong data-i18n="expRole1">Servicetechniker Ladeinfrastruktur</strong>
+            <span data-i18n="expOrg1">Tesla – Supercharger / Ladesäulen (Region Deutschland)</span>
             <ul>
-              <li>Service, Wartung und Instandhaltung von Schnellladeinfrastruktur</li>
-              <li>Fehleranalyse und Behebung technischer Störungen im Außendienst</li>
-              <li>Arbeit an modernen Energie- und Automationssystemen</li>
+              <li data-i18n="exp1a">Service, Wartung und Instandhaltung von Schnellladeinfrastruktur</li>
+              <li data-i18n="exp1b">Fehleranalyse vor Ort und Störungsbehebung</li>
+              <li data-i18n="exp1c">Arbeit an modernen Energie- und Automationssystemen</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge" data-i18n="badge1">Ladeinfrastruktur</span>
+              <span class="badge" data-i18n="badge2">Außendienst</span>
+              <span class="badge" data-i18n="badge3">Kundenkontakt</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date" data-i18n="expDate2">2012–2020</div>
+          <div class="timeline-content">
+            <strong data-i18n="expRole2">Mechatroniker / Servicetechniker</strong>
+            <span data-i18n="expOrg2">Böcker Maschinenwerke GmbH, Kassel</span>
+            <ul>
+              <li data-i18n="exp2a">Reparaturen, Wartungen und UVV-Prüfungen an Hebe- und Aufzugsanlagen</li>
+              <li data-i18n="exp2b">Fehlersuche an elektrischen und hydraulischen Systemen</li>
+              <li data-i18n="exp2c">Betreuung von Kundenprojekten und Vermietung</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge" data-i18n="badge4">Service</span>
+              <span class="badge" data-i18n="badge5">Wartung</span>
+              <span class="badge" data-i18n="badge6">Troubleshooting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="eduTitle">Ausbildung</h2>
+        <p class="section-sub" data-i18n="eduSub">Technische Basis, konsequent weiterentwickelt Richtung Automation & Robotik.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date" data-i18n="eduDate1">2025</div>
+          <div class="timeline-content">
+            <strong data-i18n="eduRole1">Staatlich geprüfter Techniker – Fachrichtung Prozessautomation</strong>
+            <span data-i18n="eduOrg1">Oskar-von-Miller-Schule, Kassel (berufsbegleitend)</span>
+            <ul>
+              <li data-i18n="edu1a">Vertiefung in Automatisierungstechnik, Steuerungs- und Regelungstechnik</li>
+              <li data-i18n="edu1b">Projektarbeit im Bereich Energie, Ladeinfrastruktur und smarte Systeme</li>
             </ul>
           </div>
         </div>
 
-        <div class="t-item">
-          <div class="t-date">2012–2020</div>
-          <div class="t-card">
-            <strong>Mechatroniker / Servicetechniker</strong>
-            <div class="sub">Böcker Maschinenwerke GmbH, Kassel</div>
+        <div class="timeline-item">
+          <div class="timeline-date" data-i18n="eduDate2">2007–2011</div>
+          <div class="timeline-content">
+            <strong data-i18n="eduRole2">Ausbildung zum Mechatroniker</strong>
+            <span data-i18n="eduOrg2">Reitz Kranservice & Industriewartung, Kassel</span>
             <ul>
-              <li>Reparaturen, Wartungen und UVV-Prüfungen an Hebe- und Aufzugsanlagen</li>
-              <li>Fehlersuche an elektrischen und hydraulischen Systemen</li>
-              <li>Betreuung von Kundenprojekten</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="t-item">
-          <div class="t-date">2011</div>
-          <div class="t-card">
-            <strong>Instandhaltung & Schaltschrankbau</strong>
-            <div class="sub">Finoba Automotive / Bombardier (über Team Time), Kassel</div>
-            <ul>
-              <li>Instandhaltung in der Automobilzulieferindustrie</li>
-              <li>Schaltschrankverkabelung (Industrieumfeld)</li>
+              <li data-i18n="edu2a">Fundierte praktische und theoretische Grundlage in Mechatronik & Elektrotechnik</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- AUSBILDUNG -->
-    <section id="education">
-      <div class="section-head">
-        <h3>Ausbildung & Weiterentwicklung</h3>
-        <p>Technische Basis, konsequent weiterentwickelt Richtung Automation & Robotik.</p>
-      </div>
-
-      <div class="timeline">
-        <div class="t-item">
-          <div class="t-date">2025</div>
-          <div class="t-card">
-            <strong>Staatlich geprüfter Techniker – Prozessautomation</strong>
-            <div class="sub">Oskar-von-Miller-Schule, Kassel (berufsbegleitend)</div>
-            <ul>
-              <li>Vertiefung in Automatisierungstechnik, Steuerungs- und Regelungstechnik</li>
-              <li>Projektarbeit im Bereich Energie, Ladeinfrastruktur, smarte Systeme</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="t-item">
-          <div class="t-date">2007–2011</div>
-          <div class="t-card">
-            <strong>Ausbildung zum Mechatroniker</strong>
-            <div class="sub">Reitz Kranservice & Industriewartung, Kassel</div>
-            <ul>
-              <li>Fundierte praktische und theoretische Grundlage in Mechatronik & Elektrotechnik</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJEKTE -->
-    <section id="projects">
-      <div class="section-head">
-        <h3>Relevante Projekte & Fokus im Vertrieb</h3>
-        <p>Konkrete Ansatzpunkte für gemeinsame Robotik-Projekte.</p>
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="projTitle">Projekte</h2>
+        <p class="section-sub" data-i18n="projSub">Konkrete Ansatzpunkte für gemeinsame Robotik-Projekte.</p>
       </div>
 
       <div class="grid-2">
         <article class="card">
-          <h4>Vertriebskonzept für Robotik</h4>
-          <p>Platzierung von Robotik-Lösungen in Industrie, Logistik, Service und weiteren Szenarien – mit Fokus auf Pilot & Skalierung.</p>
+          <h3 data-i18n="proj1Title">Vertriebskonzept für Robotik</h3>
+          <p data-i18n="proj1P">Entwicklung eines Konzepts, um Roboter z. B. in Logistik, Gastro, Events und Industrie zu platzieren.</p>
           <ul>
-            <li>Klare Nutzen- & Wirtschaftlichkeitsargumentation (ROI-Denke)</li>
-            <li>Leasing/Miete & RaaS-Ansätze</li>
-            <li>Begleitung von Pilotprojekten vor Ort</li>
+            <li data-i18n="proj1a">Ansprache mit klaren Nutzungs- und Wirtschaftlichkeitsszenarien</li>
+            <li data-i18n="proj1b">Fokus auf Leasing-/Mietmodelle und RaaS-Ansätze</li>
+            <li data-i18n="proj1c">Begleitung von ersten Pilotprojekten vor Ort</li>
           </ul>
-          <div class="tag-row">
-            <span class="tag">RaaS</span>
-            <span class="tag">Pilotkunden</span>
-            <span class="tag">Skalierung</span>
-          </div>
         </article>
 
         <article class="card">
-          <h4>Projekt: Ladeinfrastruktur & Smart Systems</h4>
-          <p>
-            Techniker-Projekt mit Wallboxen, PV-Anlage und intelligenten Systemen.
-            Grundlage für Planung, Dokumentation und saubere Inbetriebnahme komplexer Lösungen.
+          <h3 data-i18n="proj2Title">Projekt: Ladeinfrastruktur & Smart Systems</h3>
+          <p data-i18n="proj2P">
+            Techniker-Projekt mit Wallboxen, PV-Anlage und intelligenter Beleuchtung.
+            Zeigt meine Fähigkeit, komplexe Systeme zu planen, zu dokumentieren und in Betrieb zu nehmen.
           </p>
           <ul>
-            <li>Technische Konzeption & Komponentenauswahl</li>
-            <li>Wirtschaftlichkeit & Dokumentation</li>
+            <li data-i18n="proj2a">Technische Konzeption & Komponentenauswahl</li>
+            <li data-i18n="proj2b">Wirtschaftlichkeitsbetrachtung & Dokumentation</li>
           </ul>
-          <div class="tag-row">
-            <span class="tag">Techniker-Projekt</span>
-            <span class="tag">Energie</span>
-            <span class="tag">Integration</span>
-          </div>
         </article>
       </div>
     </section>
 
-    <!-- KONTAKT -->
-    <section id="contact">
-      <div class="section-head">
-        <h3>Kontakt & Zusammenarbeit</h3>
-        <p>Wenn Sie einen technisch starken, pragmatischen Vertriebspartner für Robotik suchen – sprechen Sie mich an.</p>
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <h2 class="section-title" data-i18n="contactTitle">Kontakt</h2>
+        <p class="section-sub" data-i18n="contactSub">Kurz anrufen oder E-Mail – ich stelle mich und mögliche Vertriebsmodelle kompakt vor.</p>
       </div>
 
-      <div class="contact-panel">
+      <div class="contact-grid">
         <div class="card">
-          <h4>Kontaktdaten</h4>
+          <h3 data-i18n="contactDataTitle">Kontaktdaten</h3>
 
-          <div class="contact-lines">
-            <div class="line">
-              <div class="ico">👤</div>
-              <div class="meta">
-                <div class="label">Name</div>
-                <div class="value">Florian Omonsky</div>
-              </div>
+          <div class="contact-item">
+            <div class="icon">👤</div>
+            <div>
+              <small data-i18n="lblName">Name</small>
+              <b>Florian Omonsky</b>
             </div>
+          </div>
 
-            <div class="line">
-              <div class="ico">📍</div>
-              <div class="meta">
-                <div class="label">Ort</div>
-                <div class="value">Kassel</div>
-              </div>
+          <div class="contact-item">
+            <div class="icon">📍</div>
+            <div>
+              <small data-i18n="lblCity">Ort</small>
+              <b data-i18n="valCity">Kassel</b>
             </div>
+          </div>
 
-            <a class="line" href="tel:+491795980009">
-              <div class="ico">📞</div>
-              <div class="meta">
-                <div class="label">Telefon</div>
-                <div class="value">0179 5980009</div>
-              </div>
-            </a>
+          <div class="contact-item">
+            <div class="icon">📞</div>
+            <div>
+              <small data-i18n="lblPhone">Telefon</small>
+              <b><a href="tel:+491795980009">0179 5980009</a></b>
+            </div>
+          </div>
 
-            <a class="line" href="mailto:flow.robotic-solutions@web.de">
-              <div class="ico">✉️</div>
-              <div class="meta">
-                <div class="label">E-Mail</div>
-                <div class="value">flow.robotic-solutions@web.de</div>
-              </div>
-            </a>
+          <div class="contact-item">
+            <div class="icon">✉️</div>
+            <div>
+              <small data-i18n="lblMail">E-Mail</small>
+              <b><a href="mailto:flow.robotic-solutions@web.de">flow.robotic-solutions@web.de</a></b>
+            </div>
           </div>
         </div>
 
-        <div class="cta-box">
-          <div>
-            <h4>Next Step</h4>
-            <p>Kurzer Call oder E-Mail genügt – ich stelle mich und mögliche Vertriebsmodelle kompakt vor.</p>
-          </div>
-
-          <div class="cta-actions">
-            <a class="btn primary" href="tel:+491795980009">Jetzt anrufen <span>→</span></a>
-            <a class="btn" href="mailto:flow.robotic-solutions@web.de">E-Mail senden</a>
-          </div>
+        <!-- Rechte Box: Google Maps auf Kassel (wie du wolltest) -->
+        <div class="map-box" aria-label="Karte Kassel">
+          <iframe
+            src="https://www.google.com/maps?q=Kassel,Germany&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </section>
-
-    <footer>
-      © <span id="year"></span> Florian Omonsky – Portfolio als freier Vertriebspartner für Robotik.
-    </footer>
   </main>
+
+  <footer>
+    © <span id="year"></span> Florian Omonsky – Robotik & Automatisierung
+  </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const dict = {
+      de: {
+        siteSub: "Freier Vertriebspartner · Robotik & Automatisierung",
+
+        navAbout: "Über mich",
+        navSkills: "Kompetenzen",
+        navMotivation: "Motivation",
+        navExperience: "Berufserfahrung",
+        navEducation: "Ausbildung",
+        navProjects: "Projekte",
+        navContact: "Kontakt",
+
+        heroBadge: "Staatlich geprüfter Techniker · Prozessautomation & Robotik-Vertrieb",
+        heroTitle: "Robotik-Vertrieb, der <span class='accent-text'>liefert</span>.",
+        heroKicker: "Technisch fundiert. Vertriebsstark. Fokus auf echten Kundennutzen – von der ersten Demo bis zur Umsetzung.",
+        heroSub: "Ich verbinde technische Tiefe aus der Prozess- und Energieautomation mit Praxis im Service und Außendienst – diese Kombination nutze ich, um Robotiklösungen erfolgreich zu vertreiben und zu implementieren.",
+        pill1: "Staatlich geprüfter Techniker – Prozessautomation (Abschluss 2025)",
+        pill2: "Servicetechniker Ladeinfrastruktur bei Tesla seit 01/2021",
+        pill3: "kompetent, sympathisch, lösungsorientiert",
+        pill4: "Stark in Umsetzung, Kommunikation und Vertrieb",
+        cta1: "Jetzt Austausch anfragen <span>→</span>",
+        cta2: "Berufserfahrung ansehen",
+        heroNote: "Ideal für Hersteller, die einen technisch starken, eigenständigen Vertrieb im DACH-Raum aufbauen oder verstärken wollen.",
+
+        profileTitle: "Profil auf einen Blick",
+        profileLocationLabel: "Standort",
+        profileLocationVal: "Kassel",
+        profileFocusLabel: "Fokus",
+        profileFocusVal: "Robotik, Humanoide Robotik, Automatisierung",
+        stat1Title: "Technik",
+        stat1Body: "Prozessautomation, Energieverteilung",
+        stat2Title: "Praxis",
+        stat2Body: "Inbetriebnahme, Service, Fehlersuche & Behebung",
+        stat3Title: "Vertrieb",
+        stat3Body: "Aufbau Robotik-Vertrieb, Networking & Leads",
+
+        skillsTitle: "Fachliche & persönliche Kompetenzen",
+        skillsSub: "Technik auf hohem Niveau, kombiniert mit klarer Kommunikation und Vertriebsdenken.",
+        skillsTechTitle: "Technische Kompetenzen",
+        skillsTech1: "Staatlich geprüfter Techniker in der <strong>Prozessautomation</strong>",
+        skillsTech2: "Grundlagen der Robotik (Servicerobotik / Humanoide Systeme)",
+        skillsTech3: "Erfahrung mit Energie- & Ladeinfrastruktur, Steuerungs- und Regelungstechnik",
+        skillsTech4: "Sicher im Lesen und Bewerten technischer Dokumentation & Normen",
+        skillsTech5: "Grundverständnis von Sensorik, Aktorik und Schnittstellen (Feldbus, Ethernet, Cloud)",
+        skillsSoftTitle: "Persönliche Stärken",
+        skillsSoft1: "Direkt, authentisch und lösungsorientiert",
+        skillsSoft2: "Hohe Lernbereitschaft für neue Robotersysteme",
+        skillsSoft3: "Eigenverantwortliches Arbeiten als freier Handelsvertreter",
+        skillsSoft4: "Kommunikationsstark – von der Werkstatt bis zur Geschäftsleitung",
+        skillsSoft5: "Zielstrebig, ausdauernd, verbindlich in der Umsetzung",
+        tagSales: "Vertrieb",
+        tagComms: "Kommunikation",
+        tagOwnership: "Eigenverantwortung",
+        tagResults: "Ergebnisorientierung",
+
+        motTitle: "Motivation & Mehrwert im Robotik-Vertrieb",
+        motSub: "Warum Florian Omonsky als Vertriebspartner im Bereich Robotik – und welchen Nutzen ich für Hersteller biete.",
+        motBox1Title: "Motivation",
+        motBox1P1: "Robotik und Automatisierung sind für mich die logische Weiterentwicklung industrieller Prozesse. Durch meinen Hintergrund in der Prozessautomation erkenne ich schnell, wo Roboter echten Mehrwert schaffen – und wo ein qualifizierter, praxisnaher Vertrieb gebraucht wird.",
+        motBox1P2: "Mein Ziel ist es, Robotiklösungen nicht nur zu verkaufen, sondern nachhaltig erfolgreich zu machen – mit klarer Analyse von Einsatzszenarien, Wirtschaftlichkeit und technischen Rahmenbedingungen.",
+        motTag1: "Praxisnahe Beratung",
+        motTag2: "Langfristige Partnerschaft",
+        motTag3: "Transparente Kommunikation",
+        motBox2Title: "Ihr Vorteil als Hersteller",
+        motBox2P1: "Durch meine beruflichen Qualifikationen kommuniziere ich nicht nur mit Technikern, sondern auch mit Entscheidern (Geschäftsführung, Einkauf, Objektleitung) auf Augenhöhe. Außerdem kann ich technische Komplexität in klaren Kundennutzen übersetzen.",
+        motLi1: "Qualifizierte Machbarkeitsbewertung beim Kunden",
+        motLi2: "Übersetzung von Features in greifbare Vorteile",
+        motLi3: "Begleitung von Pilotprojekten und Einführungsphasen",
+        motLi4: "Aufbau eines regionalen Netzwerks und stabiler Kundenbeziehungen",
+        motTag4: "Pilotprojekte",
+        motTag5: "DACH-Raum",
+        motTag6: "Objekt- & Industrie-Kunden",
+
+        expTitle: "Berufserfahrung",
+        expSub: "Stationen, die meine Eignung für anspruchsvollen Robotik-Vertrieb unterstreichen.",
+        expDate1: "seit 01/2021",
+        expRole1: "Servicetechniker Ladeinfrastruktur",
+        expOrg1: "Tesla – Supercharger / Ladesäulen (Region Deutschland)",
+        exp1a: "Service, Wartung und Instandhaltung von Schnellladeinfrastruktur",
+        exp1b: "Fehleranalyse vor Ort und Störungsbehebung",
+        exp1c: "Arbeit an modernen Energie- und Automationssystemen",
+        badge1: "Ladeinfrastruktur",
+        badge2: "Außendienst",
+        badge3: "Kundenkontakt",
+        expDate2: "2012–2020",
+        expRole2: "Mechatroniker / Servicetechniker",
+        expOrg2: "Böcker Maschinenwerke GmbH, Kassel",
+        exp2a: "Reparaturen, Wartungen und UVV-Prüfungen an Hebe- und Aufzugsanlagen",
+        exp2b: "Fehlersuche an elektrischen und hydraulischen Systemen",
+        exp2c: "Betreuung von Kundenprojekten und Vermietung",
+        badge4: "Service",
+        badge5: "Wartung",
+        badge6: "Troubleshooting",
+
+        eduTitle: "Ausbildung",
+        eduSub: "Technische Basis, konsequent weiterentwickelt Richtung Automation & Robotik.",
+        eduDate1: "2025",
+        eduRole1: "Staatlich geprüfter Techniker – Fachrichtung Prozessautomation",
+        eduOrg1: "Oskar-von-Miller-Schule, Kassel (berufsbegleitend)",
+        edu1a: "Vertiefung in Automatisierungstechnik, Steuerungs- und Regelungstechnik",
+        edu1b: "Projektarbeit im Bereich Energie, Ladeinfrastruktur und smarte Systeme",
+        eduDate2: "2007–2011",
+        eduRole2: "Ausbildung zum Mechatroniker",
+        eduOrg2: "Reitz Kranservice & Industriewartung, Kassel",
+        edu2a: "Fundierte praktische und theoretische Grundlage in Mechatronik & Elektrotechnik",
+
+        projTitle: "Projekte",
+        projSub: "Konkrete Ansatzpunkte für gemeinsame Robotik-Projekte.",
+        proj1Title: "Vertriebskonzept für Robotik",
+        proj1P: "Entwicklung eines Konzepts, um Roboter z. B. in Logistik, Gastro, Events und Industrie zu platzieren.",
+        proj1a: "Ansprache mit klaren Nutzungs- und Wirtschaftlichkeitsszenarien",
+        proj1b: "Fokus auf Leasing-/Mietmodelle und RaaS-Ansätze",
+        proj1c: "Begleitung von ersten Pilotprojekten vor Ort",
+        proj2Title: "Projekt: Ladeinfrastruktur & Smart Systems",
+        proj2P: "Techniker-Projekt mit Wallboxen, PV-Anlage und intelligenter Beleuchtung. Zeigt meine Fähigkeit, komplexe Systeme zu planen, zu dokumentieren und in Betrieb zu nehmen.",
+        proj2a: "Technische Konzeption & Komponentenauswahl",
+        proj2b: "Wirtschaftlichkeitsbetrachtung & Dokumentation",
+
+        contactTitle: "Kontakt",
+        contactSub: "Kurz anrufen oder E-Mail – ich stelle mich und mögliche Vertriebsmodelle kompakt vor.",
+        contactDataTitle: "Kontaktdaten",
+        lblName: "Name",
+        lblCity: "Ort",
+        lblPhone: "Telefon",
+        lblMail: "E-Mail",
+        valCity: "Kassel",
+      },
+
+      en: {
+        siteSub: "Independent Sales Partner · Robotics & Automation",
+
+        navAbout: "About",
+        navSkills: "Capabilities",
+        navMotivation: "Value",
+        navExperience: "Experience",
+        navEducation: "Education",
+        navProjects: "Projects",
+        navContact: "Contact",
+
+        heroBadge: "State-Certified Technician · Process Automation & Robotics Sales",
+        heroTitle: "Robotics sales that <span class='accent-text'>delivers</span>.",
+        heroKicker: "Technically grounded. Sales-driven. Focused on measurable value—from demo to rollout.",
+        heroSub: "I combine strong engineering depth in process & energy automation with hands-on field service experience—using this mix to sell and implement robotics solutions successfully.",
+        pill1: "State-Certified Technician – Process Automation (Graduation 2025)",
+        pill2: "Field Service Technician – Tesla Charging Infrastructure since 01/2021",
+        pill3: "competent, approachable, solution-oriented",
+        pill4: "Strong in execution, communication & sales",
+        cta1: "Request a quick call <span>→</span>",
+        cta2: "View experience",
+        heroNote: "Ideal for manufacturers building or scaling a technically strong, independent sales presence in the DACH region.",
+
+        profileTitle: "Quick profile",
+        profileLocationLabel: "Location",
+        profileLocationVal: "Kassel (DE)",
+        profileFocusLabel: "Focus",
+        profileFocusVal: "Robotics, Humanoid Robotics, Automation",
+        stat1Title: "Engineering",
+        stat1Body: "Process automation, energy systems",
+        stat2Title: "Field",
+        stat2Body: "Commissioning, service, troubleshooting & fixes",
+        stat3Title: "Sales",
+        stat3Body: "Building sales pipeline, networking & leads",
+
+        skillsTitle: "Capabilities",
+        skillsSub: "High-level engineering, combined with clear communication and a sales mindset.",
+        skillsTechTitle: "Technical strengths",
+        skillsTech1: "State-certified technician in <strong>process automation</strong>",
+        skillsTech2: "Robotics fundamentals (service robotics / humanoid systems)",
+        skillsTech3: "Energy & charging infrastructure, control & regulation engineering",
+        skillsTech4: "Confident with technical documentation and standards",
+        skillsTech5: "Solid understanding of sensors, actuators and interfaces (fieldbus, Ethernet, cloud)",
+        skillsSoftTitle: "Personal strengths",
+        skillsSoft1: "Direct, authentic and solution-driven",
+        skillsSoft2: "Fast learner for new robotics systems",
+        skillsSoft3: "Self-driven as an independent sales partner",
+        skillsSoft4: "Strong communicator—from technicians to executives",
+        skillsSoft5: "Persistent, reliable execution",
+        tagSales: "Sales",
+        tagComms: "Communication",
+        tagOwnership: "Ownership",
+        tagResults: "Results",
+
+        motTitle: "Value in robotics sales",
+        motSub: "Why I’m the right sales partner—and how manufacturers benefit.",
+        motBox1Title: "Motivation",
+        motBox1P1: "Robotics and automation are the next step in modern operations. With my process automation background, I quickly identify where robots create real ROI—and where practical, qualified sales is needed.",
+        motBox1P2: "My goal is not just to sell robotics, but to make deployments succeed—with clear scenarios, economics and technical feasibility.",
+        motTag1: "Practical consulting",
+        motTag2: "Long-term partnership",
+        motTag3: "Transparent communication",
+        motBox2Title: "Manufacturer advantage",
+        motBox2P1: "I communicate on eye level with both engineers and decision makers. I translate technical complexity into clear customer value.",
+        motLi1: "Qualified feasibility assessment on-site",
+        motLi2: "Translate features into tangible benefits",
+        motLi3: "Support pilots and rollouts",
+        motLi4: "Build regional networks and stable customer relationships",
+        motTag4: "Pilots",
+        motTag5: "DACH region",
+        motTag6: "Industrial & facility clients",
+
+        expTitle: "Experience",
+        expSub: "Roles that support high-trust robotics sales.",
+        expDate1: "since 01/2021",
+        expRole1: "Field Service Technician – Charging Infrastructure",
+        expOrg1: "Tesla – Supercharger / charging sites (Germany)",
+        exp1a: "Service, maintenance and uptime of fast-charging infrastructure",
+        exp1b: "On-site fault diagnostics and resolution",
+        exp1c: "Work with modern energy and automation systems",
+        badge1: "Energy",
+        badge2: "Field service",
+        badge3: "Customer-facing",
+        expDate2: "2012–2020",
+        expRole2: "Mechatronics / Service Technician",
+        expOrg2: "Böcker Maschinenwerke (Kassel)",
+        exp2a: "Repairs, maintenance and inspections of lifting systems",
+        exp2b: "Electrical/hydraulic troubleshooting",
+        exp2c: "Customer projects & rental support",
+        badge4: "Service",
+        badge5: "Maintenance",
+        badge6: "Troubleshooting",
+
+        eduTitle: "Education",
+        eduSub: "Strong foundation—expanded toward automation & robotics.",
+        eduDate1: "2025",
+        eduRole1: "State-Certified Technician – Process Automation",
+        eduOrg1: "Oskar-von-Miller School, Kassel (part-time)",
+        edu1a: "Automation engineering, control systems",
+        edu1b: "Project work: energy, charging, smart systems",
+        eduDate2: "2007–2011",
+        eduRole2: "Apprenticeship: Mechatronics Technician",
+        eduOrg2: "Reitz Kranservice & Industriewartung, Kassel",
+        edu2a: "Hands-on and theoretical foundation in mechatronics & electrical engineering",
+
+        projTitle: "Projects",
+        projSub: "Concrete starting points for joint robotics projects.",
+        proj1Title: "Robotics sales concept",
+        proj1P: "Building a concept to place robots across logistics, hospitality, events and industry.",
+        proj1a: "Clear usage and ROI scenarios",
+        proj1b: "Leasing/rental and RaaS approaches",
+        proj1c: "Support first pilots on-site",
+        proj2Title: "Project: Charging & smart systems",
+        proj2P: "Technician project with wallboxes, PV and smart lighting—showing planning, documentation and commissioning capabilities.",
+        proj2a: "Technical concept & component selection",
+        proj2b: "Economic evaluation & documentation",
+
+        contactTitle: "Contact",
+        contactSub: "Quick call or email—I’ll introduce myself and compact sales models.",
+        contactDataTitle: "Contact details",
+        lblName: "Name",
+        lblCity: "City",
+        lblPhone: "Phone",
+        lblMail: "Email",
+        valCity: "Kassel",
+      }
+    };
+
+    function setLang(lang){
+      document.documentElement.lang = lang === "en" ? "en" : "de";
+      const map = dict[lang];
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        if(!map[key]) return;
+        el.innerHTML = map[key];
+      });
+
+      document.getElementById("btnDE").classList.toggle("active", lang === "de");
+      document.getElementById("btnEN").classList.toggle("active", lang === "en");
+    }
+
+    document.getElementById("btnDE").addEventListener("click", ()=>setLang("de"));
+    document.getElementById("btnEN").addEventListener("click", ()=>setLang("en"));
+
+    // default: DE
+    setLang("de");
   </script>
 </body>
 </html>
