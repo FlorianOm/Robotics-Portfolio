@@ -6,1557 +6,393 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="OMONYX ROBOTICS – Geplanter Vertrieb und technischer Service für professionelle Robotik im Raum Kassel.">
   <title>OMONYX ROBOTICS – Partnerprofil &amp; Portfolio</title>
-
   <style>
-    :root {
-      --bg:#000000;
-      --card:rgba(18,25,40,0.90);
-      --text:#E8EBF0;
-      --muted:rgba(232,235,240,0.65);
-      --accent:#009EE0;
-      --accent2:#00E0B8;
-      --shadow:0 18px 42px rgba(0,158,224,0.18);
-      --max:1120px;
-    }
-
+    :root{--bg:#000000;--card:rgba(18,25,40,0.90);--text:#E8EBF0;--muted:rgba(232,235,240,0.65);--accent:#009EE0;--accent2:#00E0B8;--shadow:0 18px 42px rgba(0,158,224,0.18);--max:1120px;}
     *{box-sizing:border-box;}
-
-    html,body{
-      height:100%;
-      margin:0;
-      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.65;
-    }
-
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:0.08;
-      background:
-        radial-gradient(circle at 20% 10%,rgba(0,158,224,0.4),transparent 35%),
-        radial-gradient(circle at 85% 20%,rgba(0,224,184,0.35),transparent 40%),
-        radial-gradient(circle at 30% 85%,rgba(0,158,224,0.3),transparent 45%),
-        linear-gradient(90deg,rgba(0,158,224,0.15) 1px,transparent 1px),
-        linear-gradient(0deg,rgba(0,158,224,0.15) 1px,transparent 1px);
-      background-size:auto,auto,auto,44px 44px,44px 44px;
-      animation:pulse 8s ease-in-out infinite;
-    }
-
-    @keyframes pulse{
-      0%,100%{opacity:0.08;}
-      50%{opacity:0.15;}
-    }
-
-    a{color:inherit;text-decoration:none;}
-    a:hover{text-decoration:underline;}
-
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:22px 18px 56px;
-      position:relative;
-      z-index:1;
-    }
-
-    .lang-switch{
-      position:fixed;
-      top:20px;
-      right:20px;
-      z-index:1000;
-      display:flex;
-      gap:8px;
-      background:rgba(18,25,40,0.9);
-      backdrop-filter:blur(10px);
-      padding:8px;
-      border-radius:999px;
-      border:1px solid rgba(0,158,224,0.3);
-      box-shadow:0 4px 12px rgba(0,158,224,0.2);
-    }
-
-    .lang-btn{
-      padding:8px 16px;
-      border:1px solid transparent;
-      background:transparent;
-      color:rgba(232,235,240,0.6);
-      border-radius:999px;
-      cursor:pointer;
-      font-size:0.85rem;
-      font-weight:600;
-      letter-spacing:0.05em;
-      transition:all 0.3s ease;
-    }
-
-    .lang-btn:hover{
-      color:#009EE0;
-      background:rgba(0,158,224,0.1);
-    }
-
-    .lang-btn.active{
-      background:rgba(0,158,224,0.2);
-      border-color:rgba(0,158,224,0.5);
-      color:#009EE0;
-    }
-
-    [data-lang]:not([data-lang="de"]) .lang-de,
-    [data-lang]:not([data-lang="en"]) .lang-en{
-      display:none;
-    }
-
-    header{
-      background:rgba(10,14,23,0.95);
-      border-bottom:1px solid rgba(0,158,224,0.3);
-      box-shadow:0 4px 20px rgba(0,158,224,0.15);
-      position:relative;
-      z-index:10;
-    }
-
-    .head{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:14px 18px 10px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      align-items:center;
-    }
-
-    .brandrow{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:12px;
-    }
-
-    .logo{
-      width:220px;
-      height:auto;
-      object-fit:contain;
-      filter:drop-shadow(0 10px 18px rgba(0,158,224,0.3));
-    }
-
+    html,body{height:100%;margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg);line-height:1.65;}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:0.08;background:radial-gradient(circle at 20% 10%,rgba(0,158,224,0.4),transparent 35%),radial-gradient(circle at 85% 20%,rgba(0,224,184,0.35),transparent 40%),radial-gradient(circle at 30% 85%,rgba(0,158,224,0.3),transparent 45%),linear-gradient(90deg,rgba(0,158,224,0.15) 1px,transparent 1px),linear-gradient(0deg,rgba(0,158,224,0.15) 1px,transparent 1px);background-size:auto,auto,auto,44px 44px,44px 44px;animation:pulse 8s ease-in-out infinite;}
+    @keyframes pulse{0%,100%{opacity:0.08;}50%{opacity:0.15;}}
+    a{color:inherit;text-decoration:none;}a:hover{text-decoration:underline;}
+    .wrap{max-width:var(--max);margin:0 auto;padding:22px 18px 56px;position:relative;z-index:1;}
+    .lang-switch{position:fixed;top:20px;right:20px;z-index:1000;display:flex;gap:8px;background:rgba(18,25,40,0.9);backdrop-filter:blur(10px);padding:8px;border-radius:999px;border:1px solid rgba(0,158,224,0.3);box-shadow:0 4px 12px rgba(0,158,224,0.2);}
+    .lang-btn{padding:8px 16px;border:1px solid transparent;background:transparent;color:rgba(232,235,240,0.6);border-radius:999px;cursor:pointer;font-size:0.85rem;font-weight:600;letter-spacing:0.05em;transition:all 0.3s ease;}
+    .lang-btn:hover{color:#009EE0;background:rgba(0,158,224,0.1);}
+    .lang-btn.active{background:rgba(0,158,224,0.2);border-color:rgba(0,158,224,0.5);color:#009EE0;}
+    [data-lang]:not([data-lang="de"]) .lang-de,[data-lang]:not([data-lang="en"]) .lang-en{display:none;}
+    header{background:rgba(10,14,23,0.95);border-bottom:1px solid rgba(0,158,224,0.3);box-shadow:0 4px 20px rgba(0,158,224,0.15);position:relative;z-index:10;}
+    .head{max-width:var(--max);margin:0 auto;padding:14px 18px 10px;display:flex;flex-direction:column;gap:10px;align-items:center;}
+    .brandrow{display:flex;flex-direction:column;align-items:center;gap:12px;}
+    .logo{width:220px;height:auto;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(0,158,224,0.3));}
     .brandtext{text-align:center;}
-
-    .brandtext h1{
-      margin:0;
-      font-size:clamp(1.55rem,2.2vw + 1rem,2.35rem);
-      letter-spacing:0.02em;
-      line-height:1.1;
-    }
-
-    .brandtext p{
-      margin:4px 0 0;
-      font-size:0.98rem;
-      color:var(--muted);
-    }
-
-    nav{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:10px;
-      padding:2px 0 10px;
-    }
-
-    nav a{
-      font-size:0.85rem;
-      letter-spacing:0.14em;
-      text-transform:uppercase;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid transparent;
-      color:rgba(232,235,240,0.78);
-      transition:all 0.3s ease;
-    }
-
-    nav a:hover{
-      background:rgba(0,158,224,0.15);
-      border-color:rgba(0,158,224,0.45);
-      text-decoration:none;
-      color:#009EE0;
-    }
-
-    .hero{
-      margin-top:18px;
-      border-radius:24px;
-      border:1px solid rgba(0,158,224,0.3);
-      background:linear-gradient(135deg,rgba(18,25,40,0.95),rgba(14,20,35,0.85));
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:-60px -40px auto auto;
-      width:420px;
-      height:420px;
-      background:
-        radial-gradient(circle at 30% 30%,rgba(0,158,224,0.20),transparent 60%),
-        radial-gradient(circle at 70% 50%,rgba(0,224,184,0.16),transparent 60%);
-      transform:rotate(12deg);
-      pointer-events:none;
-      opacity:0.95;
-    }
-
-    .hero-inner{
-      display:grid;
-      grid-template-columns:minmax(0,1.35fr) minmax(320px,0.95fr);
-      gap:18px;
-      padding:22px;
-      position:relative;
-      z-index:1;
-      align-items:stretch;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(0,158,224,0.3);
-      background:rgba(18,25,40,0.75);
-      width:fit-content;
-      font-size:0.92rem;
-      color:rgba(232,235,240,0.82);
-      margin-bottom:14px;
-    }
-
-    .dot{
-      width:10px;
-      height:10px;
-      border-radius:999px;
-      background:var(--accent);
-      box-shadow:0 0 0 6px rgba(0,158,224,0.25);
-      animation:pulse-dot 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse-dot{
-      0%,100%{box-shadow:0 0 0 6px rgba(0,158,224,0.25);}
-      50%{box-shadow:0 0 0 10px rgba(0,158,224,0.15);}
-    }
-
-    .hero h2{
-      margin:0;
-      font-size:clamp(2rem,2.8vw + 1rem,3rem);
-      line-height:1.2;
-      letter-spacing:-0.02em;
-    }
-
-    .hero h2 .accent{
-      background:linear-gradient(90deg,var(--accent),var(--accent2));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-
-    .hero-lead{
-      margin:12px 0 0;
-      font-size:1.05rem;
-      color:rgba(232,235,240,0.82);
-      max-width:56ch;
-    }
-
-    .hero-sub{
-      margin:12px 0 0;
-      color:var(--muted);
-      max-width:66ch;
-    }
-
-    .pills{
-      margin-top:16px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .pill{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(0,158,224,0.3);
-      background:rgba(18,25,40,0.75);
-      font-size:0.92rem;
-      color:rgba(232,235,240,0.85);
-      box-shadow:0 10px 16px rgba(0,0,0,0.2);
-    }
-
-    .pill.primary{
-      border-color:rgba(0,158,224,0.55);
-      background:rgba(0,158,224,0.15);
-      font-weight:600;
-    }
-
-    .actions{
-      margin-top:16px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      align-items:center;
-    }
-
-    .btn{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      border-radius:999px;
-      padding:12px 18px;
-      border:1px solid rgba(0,158,224,0.3);
-      background:rgba(18,25,40,0.75);
-      color:rgba(232,235,240,0.92);
-      font-weight:700;
-      box-shadow:0 12px 18px rgba(0,0,0,0.2);
-      transition:all 0.3s ease;
-    }
-
-    .btn:hover{
-      text-decoration:none;
-      transform:translateY(-2px);
-      box-shadow:0 16px 24px rgba(0,158,224,0.25);
-    }
-
-    .btn.primary{
-      border-color:rgba(0,158,224,0.55);
-      background:linear-gradient(90deg,rgba(0,158,224,0.25),rgba(0,224,184,0.20));
-    }
-
-    .note{
-      margin-top:10px;
-      font-size:0.92rem;
-      color:var(--muted);
-    }
-
-    .hero-right{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-
-    .portrait-card{
-      border-radius:18px;
-      border:1px solid rgba(0,158,224,0.3);
-      background:rgba(18,25,40,0.75);
-      padding:12px;
-      box-shadow:0 10px 26px rgba(0,158,224,0.12);
-    }
-
-    .portrait{
-      width:100%;
-      height:320px;
-      object-fit:cover;
-      object-position:center 20%;
-      border-radius:14px;
-      border:1px solid rgba(0,158,224,0.2);
-      display:block;
-      background:rgba(18,25,40,0.65);
-    }
-
-    .profile-card{
-      border-radius:18px;
-      border:1px solid rgba(0,158,224,0.3);
-      background:rgba(18,25,40,0.75);
-      padding:16px;
-      box-shadow:0 10px 26px rgba(0,158,224,0.12);
-    }
-
-    .profile-card h3{
-      margin:0 0 10px;
-      font-size:1.15rem;
-    }
-
-    .stats{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-    }
-
-    .stat{
-      border-radius:16px;
-      padding:14px;
-      border:1px solid rgba(0,158,224,0.35);
-      background:rgba(18,25,40,0.75);
-      min-height:90px;
-      display:flex;
-      flex-direction:row;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      overflow:hidden;
-      transition:all 0.3s ease;
-    }
-
-    .stat:hover{
-      border-color:rgba(0,158,224,0.65);
-      box-shadow:0 8px 24px rgba(0,158,224,0.25);
-      transform:translateY(-2px);
-    }
-
-    .stat strong{
-      display:block;
-      font-size:1rem;
-      margin-bottom:6px;
-      min-width:90px;
-    }
-
-    .stat span{
-      display:block;
-      font-size:0.92rem;
-      color:var(--muted);
-      line-height:1.5;
-      word-break:break-word;
-    }
-
+    .brandtext h1{margin:0;font-size:clamp(1.55rem,2.2vw + 1rem,2.35rem);letter-spacing:0.02em;line-height:1.1;}
+    .brandtext p{margin:4px 0 0;font-size:0.98rem;color:var(--muted);}
+    nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 10px;padding:2px 0 10px;}
+    nav a{font-size:0.85rem;letter-spacing:0.14em;text-transform:uppercase;padding:10px 12px;border-radius:999px;border:1px solid transparent;color:rgba(232,235,240,0.78);transition:all 0.3s ease;}
+    nav a:hover{background:rgba(0,158,224,0.15);border-color:rgba(0,158,224,0.45);text-decoration:none;color:#009EE0;}
+    .hero{margin-top:18px;border-radius:24px;border:1px solid rgba(0,158,224,0.3);background:linear-gradient(135deg,rgba(18,25,40,0.95),rgba(14,20,35,0.85));box-shadow:var(--shadow);overflow:hidden;position:relative;}
+    .hero::after{content:"";position:absolute;inset:-60px -40px auto auto;width:420px;height:420px;background:radial-gradient(circle at 30% 30%,rgba(0,158,224,0.20),transparent 60%),radial-gradient(circle at 70% 50%,rgba(0,224,184,0.16),transparent 60%);transform:rotate(12deg);pointer-events:none;opacity:0.95;}
+    .hero-inner{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,0.95fr);gap:18px;padding:22px;position:relative;z-index:1;align-items:stretch;}
+    .badge{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;border:1px solid rgba(0,158,224,0.3);background:rgba(18,25,40,0.75);width:fit-content;font-size:0.92rem;color:rgba(232,235,240,0.82);margin-bottom:14px;}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 6px rgba(0,158,224,0.25);animation:pulse-dot 2s ease-in-out infinite;}
+    @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 6px rgba(0,158,224,0.25);}50%{box-shadow:0 0 0 10px rgba(0,158,224,0.15);}}
+    .hero h2{margin:0;font-size:clamp(2.0rem,2.8vw + 1rem,3.0rem);line-height:1.2;letter-spacing:-0.02em;}
+    .hero h2 .accent{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .hero-lead{margin:12px 0 0;font-size:1.05rem;color:rgba(232,235,240,0.82);max-width:56ch;}
+    .hero-sub{margin:12px 0 0;color:var(--muted);max-width:66ch;}
+    .pills{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px;}
+    .pill{padding:10px 14px;border-radius:999px;border:1px solid rgba(0,158,224,0.3);background:rgba(18,25,40,0.75);font-size:0.92rem;color:rgba(232,235,240,0.85);box-shadow:0 10px 16px rgba(0,0,0,0.2);}
+    .pill.primary{border-color:rgba(0,158,224,0.55);background:rgba(0,158,224,0.15);font-weight:600;}
+    .actions{margin-top:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+    .btn{display:inline-flex;gap:10px;align-items:center;border-radius:999px;padding:12px 18px;border:1px solid rgba(0,158,224,0.3);background:rgba(18,25,40,0.75);color:rgba(232,235,240,0.92);font-weight:700;box-shadow:0 12px 18px rgba(0,0,0,0.2);transition:all 0.3s ease;}
+    .btn:hover{text-decoration:none;transform:translateY(-2px);box-shadow:0 16px 24px rgba(0,158,224,0.25);}
+    .btn.primary{border-color:rgba(0,158,224,0.55);background:linear-gradient(90deg,rgba(0,158,224,0.25),rgba(0,224,184,0.20));}
+    .note{margin-top:10px;font-size:0.92rem;color:var(--muted);}
+    .hero-right{display:flex;flex-direction:column;gap:14px;}
+    .portrait-card{border-radius:18px;border:1px solid rgba(0,158,224,0.3);background:rgba(18,25,40,0.75);padding:12px;box-shadow:0 10px 26px rgba(0,158,224,0.12);}
+    .portrait{width:100%;height:320px;object-fit:cover;object-position:center 20%;border-radius:14px;border:1px solid rgba(0,158,224,0.2);display:block;background:rgba(18,25,40,0.65);}
+    .profile-card{border-radius:18px;border:1px solid rgba(0,158,224,0.3);background:rgba(18,25,40,0.75);padding:16px;box-shadow:0 10px 26px rgba(0,158,224,0.12);}
+    .profile-card h3{margin:0 0 10px;font-size:1.15rem;}
+    .stats{display:grid;grid-template-columns:1fr;gap:12px;}
+    .stat{border-radius:16px;padding:14px 14px 12px;border:1px solid rgba(0,158,224,0.35);background:rgba(18,25,40,0.75);min-height:90px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:12px;overflow:hidden;transition:all 0.3s ease;}
+    .stat:hover{border-color:rgba(0,158,224,0.65);box-shadow:0 8px 24px rgba(0,158,224,0.25);transform:translateY(-2px);}
+    .stat strong{display:block;font-size:1.0rem;margin-bottom:6px;min-width:90px;}
+    .stat span{display:block;font-size:0.92rem;color:var(--muted);line-height:1.5;word-break:break-word;}
     .section{margin-top:26px;}
-
     .section-head{margin:28px 0 12px;}
-
-    .section-head h3{
-      margin:0;
-      font-size:1.35rem;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      color:var(--accent);
-    }
-
-    .section-head p{
-      margin:6px 0 0;
-      color:var(--muted);
-      max-width:80ch;
-    }
-
-    .grid2{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .card{
-      border-radius:18px;
-      border:1px solid rgba(0,158,224,0.3);
-      background:var(--card);
-      box-shadow:0 10px 26px rgba(0,158,224,0.12);
-      padding:16px;
-      transition:all 0.3s ease;
-    }
-
-    .card:hover{
-      border-color:rgba(0,158,224,0.55);
-      box-shadow:0 12px 32px rgba(0,158,224,0.2);
-      transform:translateY(-3px);
-    }
-
-    .card h4{
-      margin:0 0 10px;
-      font-size:1.10rem;
-    }
-
-    .card p{
-      margin:0 0 10px;
-      color:rgba(232,235,240,0.84);
-    }
-
-    ul.clean{
-      margin:10px 0 0;
-      padding:0 0 0 18px;
-    }
-
-    ul.clean li{
-      margin:8px 0;
-      color:rgba(232,235,240,0.84);
-    }
-
-    .tags{
-      margin-top:12px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .tag{
-      border-radius:999px;
-      padding:8px 12px;
-      border:1px solid rgba(0,158,224,0.25);
-      background:rgba(18,25,40,0.75);
-      font-size:0.88rem;
-      color:rgba(232,235,240,0.82);
-    }
-
-    .timeline{
-      display:grid;
-      gap:14px;
-    }
-
-    .t-item{
-      display:grid;
-      grid-template-columns:130px minmax(0,1fr);
-      gap:14px;
-      align-items:stretch;
-    }
-
-    .t-date{
-      color:var(--accent);
-      font-weight:800;
-      letter-spacing:0.04em;
-      padding-top:12px;
-    }
-
-    .t-card{
-      border-radius:18px;
-      border:1px solid rgba(0,158,224,0.3);
-      background:var(--card);
-      box-shadow:0 10px 26px rgba(0,158,224,0.12);
-      padding:16px;
-      transition:all 0.3s ease;
-    }
-
-    .t-card:hover{
-      border-color:rgba(0,158,224,0.5);
-      transform:translateX(4px);
-    }
-
-    .t-card strong{
-      display:block;
-      font-size:1.05rem;
-      margin-bottom:4px;
-    }
-
-    .t-card .sub{
-      color:var(--muted);
-      margin-bottom:10px;
-    }
-
-    .badges{
-      margin-top:10px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .badge2{
-      border-radius:999px;
-      padding:8px 12px;
-      border:1px solid rgba(0,158,224,0.25);
-      background:rgba(0,158,224,0.15);
-      font-size:0.86rem;
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-      gap:16px;
-      align-items:stretch;
-    }
-
-    .contact-row{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      padding:12px;
-      border-radius:16px;
-      border:1px solid rgba(0,158,224,0.3);
-      background:rgba(18,25,40,0.75);
-      margin:12px 0 0;
-      transition:all 0.3s ease;
-    }
-
-    .contact-row:hover{
-      border-color:rgba(0,158,224,0.5);
-      transform:translateX(4px);
-    }
-
-    .icon{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:rgba(0,158,224,0.15);
-      border:1px solid rgba(0,158,224,0.35);
-      font-size:20px;
-    }
-
-    .contact-row small{
-      display:block;
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-      font-size:0.72rem;
-      color:rgba(232,235,240,0.62);
-    }
-
-    .contact-row b{
-      display:block;
-      font-size:1.02rem;
-      margin-top:2px;
-    }
-
-    .map{
-      width:100%;
-      height:320px;
-      border:0;
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:0 14px 26px rgba(0,0,0,0.3);
-      border:1px solid rgba(0,158,224,0.3);
-    }
-
-    footer{
-      margin-top:26px;
-      text-align:center;
-      color:rgba(232,235,240,0.55);
-      font-size:0.9rem;
-    }
-
-    @media(max-width:980px){
-      .hero h2{white-space:normal;}
-      header .brandrow{flex-direction:column;}
-      .logo{width:150px;height:auto;}
-      .hero-inner{grid-template-columns:1fr;}
-      .stats{grid-template-columns:1fr;}
-      .t-item{grid-template-columns:1fr;}
-      .contact-grid{grid-template-columns:1fr;}
-      .grid2{grid-template-columns:1fr;}
-      nav{gap:8px;}
-      nav a{font-size:0.78rem;padding:8px 10px;}
-      .hero h2{font-size:2rem;}
-    }
-
-    @media(max-width:640px){
-      .logo{width:120px;height:auto;}
-      .brandtext h1{font-size:1.4rem;}
-      .hero h2{font-size:1.75rem;}
-      .hero-lead{font-size:0.95rem;}
-      .pill{font-size:0.82rem;padding:8px 12px;}
-      .stat{
-        flex-direction:column;
-        text-align:center;
-        min-height:110px;
-      }
-      .lang-switch{
-        top:10px;
-        right:10px;
-        padding:6px;
-      }
-      .lang-btn{
-        padding:6px 12px;
-        font-size:0.75rem;
-      }
-    }
+    .section-head h3{margin:0;font-size:1.35rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);}
+    .section-head p{margin:6px 0 0;color:var(--muted);max-width:80ch;}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
+    .card{border-radius:18px;border:1px solid rgba(0,158,224,0.3);background:var(--card);box-shadow:0 10px 26px rgba(0,158,224,0.12);padding:16px 16px;transition:all 0.3s ease;}
+    .card:hover{border-color:rgba(0,158,224,0.55);box-shadow:0 12px 32px rgba(0,158,224,0.2);transform:translateY(-3px);}
+    .card h4{margin:0 0 10px;font-size:1.10rem;}
+    .card p{margin:0 0 10px;color:rgba(232,235,240,0.84);}
+    ul.clean{margin:10px 0 0;padding:0 0 0 18px;}
+    ul.clean li{margin:8px 0;color:rgba(232,235,240,0.84);}
+    .tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:10px;}
+    .tag{border-radius:999px;padding:8px 12px;border:1px solid rgba(0,158,224,0.25);background:rgba(18,25,40,0.75);font-size:0.88rem;color:rgba(232,235,240,0.82);}
+    .timeline{display:grid;gap:14px;}
+    .t-item{display:grid;grid-template-columns:130px minmax(0,1fr);gap:14px;align-items:stretch;}
+    .t-date{color:var(--accent);font-weight:800;letter-spacing:0.04em;padding-top:12px;}
+    .t-card{border-radius:18px;border:1px solid rgba(0,158,224,0.3);background:var(--card);box-shadow:0 10px 26px rgba(0,158,224,0.12);padding:16px;transition:all 0.3s ease;}
+    .t-card:hover{border-color:rgba(0,158,224,0.5);transform:translateX(4px);}
+    .t-card strong{display:block;font-size:1.05rem;margin-bottom:4px;}
+    .t-card .sub{color:var(--muted);margin-bottom:10px;}
+    .badges{margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;}
+    .badge2{border-radius:999px;padding:8px 12px;border:1px solid rgba(0,158,224,0.25);background:rgba(0,158,224,0.15);font-size:0.86rem;}
+    .contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:stretch;}
+    .contact-row{display:flex;gap:12px;align-items:center;padding:12px;border-radius:16px;border:1px solid rgba(0,158,224,0.3);background:rgba(18,25,40,0.75);margin:12px 0 0;transition:all 0.3s ease;}
+    .contact-row:hover{border-color:rgba(0,158,224,0.5);transform:translateX(4px);}
+    .icon{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(0,158,224,0.15);border:1px solid rgba(0,158,224,0.35);font-size:20px;}
+    .contact-row small{display:block;letter-spacing:0.16em;text-transform:uppercase;font-size:0.72rem;color:rgba(232,235,240,0.62);}
+    .contact-row b{display:block;font-size:1.02rem;margin-top:2px;}
+    .map{width:100%;height:320px;border:0;border-radius:16px;overflow:hidden;box-shadow:0 14px 26px rgba(0,0,0,0.3);border:1px solid rgba(0,158,224,0.3);}
+    footer{margin-top:26px;text-align:center;color:rgba(232,235,240,0.55);font-size:0.9rem;}
+    @media (max-width:980px){.hero h2{white-space:normal;}header .brandrow{flex-direction:column;}.logo{width:150px;height:auto;}.hero-inner{grid-template-columns:1fr;}.stats{grid-template-columns:1fr;}.t-item{grid-template-columns:1fr;}.contact-grid{grid-template-columns:1fr;}.grid2{grid-template-columns:1fr;}nav{gap:8px;}nav a{font-size:0.78rem;padding:8px 10px;}.hero h2{font-size:2rem;}}
+    @media (max-width:640px){.logo{width:120px;height:auto;}.brandtext h1{font-size:1.4rem;}.hero h2{font-size:1.75rem;}.hero-lead{font-size:0.95rem;}.pill{font-size:0.82rem;padding:8px 12px;}.stat{flex-direction:column;text-align:center;min-height:110px;}.lang-switch{top:10px;right:10px;padding:6px;}.lang-btn{padding:6px 12px;font-size:0.75rem;}}
   </style>
 </head>
-
 <body data-lang="de">
-
   <div class="lang-switch">
     <button class="lang-btn active" type="button" onclick="switchLang('de')" data-lang-btn="de">DE</button>
     <button class="lang-btn" type="button" onclick="switchLang('en')" data-lang-btn="en">EN</button>
   </div>
-
   <header>
     <div class="head">
-
       <div class="brandrow">
         <img class="logo" src="assets/img/logo.png" alt="OMONYX ROBOTICS Logo">
-
         <div class="brandtext">
           <h1>OMONYX ROBOTICS</h1>
           <p class="lang-de">Beratung · Vertrieb · Technischer Service</p>
           <p class="lang-en">Consulting · Sales · Technical Service</p>
         </div>
       </div>
-
       <nav>
-        <a href="#about" class="lang-de">Über uns</a>
-        <a href="#about" class="lang-en">About</a>
-
-        <a href="#skills" class="lang-de">Leistungen</a>
-        <a href="#skills" class="lang-en">Services</a>
-
-        <a href="#motivation" class="lang-de">Unser Konzept</a>
-        <a href="#motivation" class="lang-en">Our Concept</a>
-
-        <a href="#team">Team</a>
-
-        <a href="#experience" class="lang-de">Berufserfahrung</a>
-        <a href="#experience" class="lang-en">Experience</a>
-
-        <a href="#education" class="lang-de">Qualifikationen</a>
-        <a href="#education" class="lang-en">Qualifications</a>
-
-        <a href="#projects" class="lang-de">Vorhaben</a>
-        <a href="#projects" class="lang-en">Projects</a>
-
-        <a href="#contact" class="lang-de">Kontakt</a>
-        <a href="#contact" class="lang-en">Contact</a>
+        <a href="#about" class="lang-de">Über uns</a><a href="#about" class="lang-en">About</a>
+        <a href="#skills" class="lang-de">Leistungen</a><a href="#skills" class="lang-en">Services</a>
+        <a href="#motivation" class="lang-de">Unser Konzept</a><a href="#motivation" class="lang-en">Our Concept</a>
+        <a href="#team" class="lang-de">Team</a><a href="#team" class="lang-en">Team</a>
+        <a href="#experience" class="lang-de">Berufserfahrung</a><a href="#experience" class="lang-en">Experience</a>
+        <a href="#education" class="lang-de">Qualifikationen</a><a href="#education" class="lang-en">Qualifications</a>
+        <a href="#projects" class="lang-de">Vorhaben</a><a href="#projects" class="lang-en">Projects</a>
+        <a href="#contact" class="lang-de">Kontakt</a><a href="#contact" class="lang-en">Contact</a>
       </nav>
-
     </div>
   </header>
-
   <main class="wrap">
-
-    <!-- STARTSEITE -->
-
     <section class="hero" id="about">
       <div class="hero-inner">
-
         <div>
           <div class="badge">
             <span class="dot"></span>
             <span class="lang-de">Im Aufbau · Standort Kassel</span>
             <span class="lang-en">In development · Based in Kassel</span>
           </div>
-
-          <h2>
-            <span class="accent lang-de">
-              Professionelle Robotik.<br>
-              Passend zum Einsatz.<br>
-              Persönlich betreut.
-            </span>
-            <span class="accent lang-en">
-              Professional Robotics.<br>
-              Right for the Task.<br>
-              Supported Locally.
-            </span>
-          </h2>
-
-          <p class="hero-lead lang-de">
-            OMONYX ROBOTICS soll Unternehmen bei der Auswahl, Einführung und Betreuung
-            professioneller Robotiksysteme unterstützen.
-          </p>
-
-          <p class="hero-lead lang-en">
-            OMONYX ROBOTICS aims to help companies select, introduce and maintain
-            professional robotic systems.
-          </p>
-
-          <p class="hero-sub lang-de">
-            Wir planen ein herstellerübergreifendes Vertriebs- und Serviceangebot
-            im Umkreis von etwa 250 km um Kassel. Dabei geht es nicht darum,
-            möglichst viele Roboter zu verkaufen, sondern für den jeweiligen
-            Betrieb ein geeignetes System zu finden und es auch nach dem Kauf
-            zu betreuen.
-          </p>
-
-          <p class="hero-sub lang-en">
-            We are developing a multi-brand sales and service offering within
-            approximately 250 km of Kassel. Our aim is to find suitable systems
-            for each business and provide support after installation,
-            rather than simply sell equipment.
-          </p>
-
+          <h2><span class="accent lang-de">Professionelle Robotik.<br>Passend zum Einsatz.<br>Persönlich betreut.</span><span class="accent lang-en">Professional Robotics.<br>Right for the Task.<br>Supported Locally.</span></h2>
+          <p class="hero-lead lang-de">OMONYX ROBOTICS soll Unternehmen bei der Auswahl, Einführung und Betreuung professioneller Robotiksysteme unterstützen.</p>
+          <p class="hero-lead lang-en">OMONYX ROBOTICS aims to help companies select, introduce and maintain professional robotic systems.</p>
+          <p class="hero-sub lang-de">Wir planen ein herstellerübergreifendes Vertriebs- und Serviceangebot im Umkreis von etwa 150 km um Kassel. Dabei geht es nicht darum, möglichst viele Roboter zu verkaufen, sondern für den jeweiligen Betrieb ein geeignetes System zu finden und es auch nach dem Kauf zu betreuen.</p>
+          <p class="hero-sub lang-en">We are developing a multi-brand sales and service offering within approximately 150 km of Kassel. Our aim is to find suitable systems for each business and provide support after installation, rather than simply sell equipment.</p>
           <div class="pills">
-            <span class="pill primary lang-de">
-              Technischer Service &amp; Instandhaltung
-            </span>
-            <span class="pill primary lang-en">
-              Technical Service &amp; Maintenance
-            </span>
-
-            <span class="pill lang-de">
-              Beratung &amp; auftragsbezogener Vertrieb
-            </span>
-            <span class="pill lang-en">
-              Consulting &amp; Order-Based Sales
-            </span>
-
-            <span class="pill lang-de">
-              Inbetriebnahme &amp; Schulung
-            </span>
-            <span class="pill lang-en">
-              Commissioning &amp; Training
-            </span>
+            <span class="pill primary lang-de">Technischer Service &amp; Instandhaltung</span>
+            <span class="pill primary lang-en">Technical Service &amp; Maintenance</span>
+            <span class="pill lang-de">Beratung &amp; auftragsbezogener Vertrieb</span>
+            <span class="pill lang-en">Consulting &amp; Order-Based Sales</span>
+            <span class="pill lang-de">Inbetriebnahme &amp; Schulung</span>
+            <span class="pill lang-en">Commissioning &amp; Training</span>
           </div>
-
           <div class="actions">
-            <a class="btn primary" href="#contact">
-              <span class="lang-de">Kontakt aufnehmen</span>
-              <span class="lang-en">Get in Touch</span>
-              <span>→</span>
-            </a>
-
-            <a class="btn" href="#motivation">
-              <span class="lang-de">Geschäftskonzept ansehen</span>
-              <span class="lang-en">View Our Concept</span>
-            </a>
+            <a class="btn primary" href="#contact"><span class="lang-de">Kontakt aufnehmen</span><span class="lang-en">Get in Touch</span><span>→</span></a>
+            <a class="btn" href="#motivation"><span class="lang-de">Geschäftskonzept ansehen</span><span class="lang-en">View Our Concept</span></a>
           </div>
-
-          <div class="note lang-de">
-            Das Unternehmen befindet sich im Aufbau. Gespräche mit möglichen
-            Herstellern und Vertriebspartnern sind Teil der Planung.
-          </div>
-
-          <div class="note lang-en">
-            The business is currently being developed. Discussions with
-            potential manufacturers and distribution partners are part
-            of the planning process.
-          </div>
-
+          <div class="note lang-de">Das Unternehmen befindet sich im Aufbau. Gespräche mit möglichen Herstellern und Vertriebspartnern sind Teil der Planung.</div>
+          <div class="note lang-en">The business is currently being developed. Discussions with potential manufacturers and distribution partners are part of the planning process.</div>
         </div>
-
         <div class="hero-right">
-
-          <!-- KORRIGIERTER DATEINAME: flow.jpeg -->
-
-          <div class="portrait-card">
-            <img class="portrait"
-                 src="assets/img/flow.jpeg"
-                 alt="Florian Omonsky"
-                 loading="lazy">
-          </div>
-
+          <div class="portrait-card"><img class="portrait" src="assets/img/flow.jpeg" alt="Florian Omonsky" loading="lazy"></div>
           <aside class="profile-card">
-            <h3 class="lang-de">Profil auf einen Blick</h3>
-            <h3 class="lang-en">At a Glance</h3>
-
+            <h3 class="lang-de">Profil auf einen Blick</h3><h3 class="lang-en">At a Glance</h3>
             <div class="stats">
-
-              <div class="stat">
-                <strong class="lang-de">Technik</strong>
-                <strong class="lang-en">Engineering</strong>
-                <span class="lang-de">
-                  Mechatronik, Elektrotechnik, Steuerungs- und Regelungstechnik
-                </span>
-                <span class="lang-en">
-                  Mechatronics, electrical engineering and control systems
-                </span>
-              </div>
-
-              <div class="stat">
-                <strong class="lang-de">Praxis</strong>
-                <strong class="lang-en">Experience</strong>
-                <span class="lang-de">
-                  Wartung, Reparatur, Fehlerdiagnose, Inbetriebnahme und Außendienst
-                </span>
-                <span class="lang-en">
-                  Maintenance, repairs, diagnostics, commissioning and field service
-                </span>
-              </div>
-
-              <div class="stat">
-                <strong class="lang-de">Organisation</strong>
-                <strong class="lang-en">Organisation</strong>
-                <span class="lang-de">
-                  Digitalisierung, Projektarbeit und Betrachtung von Kundenprozessen
-                </span>
-                <span class="lang-en">
-                  Digitalisation, project work and understanding customer workflows
-                </span>
-              </div>
-
+              <div class="stat"><strong class="lang-de">Technik</strong><strong class="lang-en">Engineering</strong><span class="lang-de">Mechatronik, Elektrotechnik, Steuerungs- und Regelungstechnik</span><span class="lang-en">Mechatronics, electrical engineering and control systems</span></div>
+              <div class="stat"><strong class="lang-de">Praxis</strong><strong class="lang-en">Experience</strong><span class="lang-de">Wartung, Reparatur, Fehlerdiagnose, Inbetriebnahme und Außendienst</span><span class="lang-en">Maintenance, repairs, diagnostics, commissioning and field service</span></div>
+              <div class="stat"><strong class="lang-de">Organisation</strong><strong class="lang-en">Organisation</strong><span class="lang-de">Digitalisierung, Projektarbeit und Betrachtung von Kundenprozessen</span><span class="lang-en">Digitalisation, project work and understanding customer workflows</span></div>
             </div>
           </aside>
         </div>
-
       </div>
     </section>
-
-
-    <!-- LEISTUNGEN -->
 
     <section class="section" id="skills">
       <div class="section-head">
-        <h3 class="lang-de">Geplante Leistungen</h3>
-        <h3 class="lang-en">Planned Services</h3>
-
-        <p class="lang-de">
-          Vertrieb und technische Betreuung sollen bei uns zusammengehören.
-        </p>
-        <p class="lang-en">
-          Sales and technical support are intended to go hand in hand.
-        </p>
+        <h3 class="lang-de">Geplante Leistungen</h3><h3 class="lang-en">Planned Services</h3>
+        <p class="lang-de">Vertrieb und technische Betreuung sollen bei uns zusammengehören.</p>
+        <p class="lang-en">Sales and technical support are intended to go hand in hand.</p>
       </div>
-
       <div class="grid2">
-
         <article class="card">
-          <h4 class="lang-de">Beratung, Vertrieb &amp; Einführung</h4>
-          <h4 class="lang-en">Consulting, Sales &amp; Introduction</h4>
-
+          <h4 class="lang-de">Beratung, Vertrieb &amp; Einführung</h4><h4 class="lang-en">Consulting, Sales &amp; Introduction</h4>
           <ul class="clean">
-            <li class="lang-de">Aufgaben und Abläufe beim Kunden betrachten</li>
-            <li class="lang-en">Review tasks and workflows at customer sites</li>
-
-            <li class="lang-de">Geeignete Robotiksysteme verschiedener Hersteller auswählen</li>
-            <li class="lang-en">Select suitable systems from different manufacturers</li>
-
-            <li class="lang-de">Produktvorführungen, Teststellungen und Pilotprojekte begleiten</li>
-            <li class="lang-en">Support demonstrations, trials and pilot projects</li>
-
-            <li class="lang-de">Robotiksysteme nach Kundenauftrag beschaffen und vertreiben</li>
-            <li class="lang-en">Source and sell systems based on customer orders</li>
-
-            <li class="lang-de">Inbetriebnahmen, Schulungen und Einweisungen unterstützen</li>
-            <li class="lang-en">Assist with commissioning, training and customer instruction</li>
+            <li class="lang-de">Aufgaben und Abläufe beim Kunden betrachten</li><li class="lang-en">Review tasks and workflows at customer sites</li>
+            <li class="lang-de">Geeignete Robotiksysteme verschiedener Hersteller auswählen</li><li class="lang-en">Select suitable systems from different manufacturers</li>
+            <li class="lang-de">Produktvorführungen, Teststellungen und Pilotprojekte begleiten</li><li class="lang-en">Support demonstrations, trials and pilot projects</li>
+            <li class="lang-de">Robotiksysteme nach Kundenauftrag beschaffen und vertreiben</li><li class="lang-en">Source and sell systems based on customer orders</li>
+            <li class="lang-de">Inbetriebnahmen, Schulungen und Einweisungen unterstützen</li><li class="lang-en">Assist with commissioning, training and customer instruction</li>
           </ul>
         </article>
-
         <article class="card">
-          <h4 class="lang-de">Technischer Service</h4>
-          <h4 class="lang-en">Technical Service</h4>
-
+          <h4 class="lang-de">Technischer Service</h4><h4 class="lang-en">Technical Service</h4>
           <ul class="clean">
-            <li class="lang-de">Wartung und Instandhaltung</li>
-            <li class="lang-en">Maintenance and servicing</li>
-
-            <li class="lang-de">Fehlerdiagnose und Reparatur</li>
-            <li class="lang-en">Troubleshooting and repair</li>
-
-            <li class="lang-de">Instandsetzung und Austausch von Komponenten</li>
-            <li class="lang-en">Restoration and component replacement</li>
-
-            <li class="lang-de">Technische Anpassungen und Aufrüstung bestehender Systeme</li>
-            <li class="lang-en">Technical modifications and upgrades</li>
-
-            <li class="lang-de">
-              Ansprechpartner bei technischen Fragen im laufenden Betrieb
-            </li>
-            <li class="lang-en">
-              Technical contact for customers during daily operation
-            </li>
+            <li class="lang-de">Wartung und Instandhaltung</li><li class="lang-en">Maintenance and servicing</li>
+            <li class="lang-de">Fehlerdiagnose und Reparatur</li><li class="lang-en">Troubleshooting and repair</li>
+            <li class="lang-de">Instandsetzung und Austausch von Komponenten</li><li class="lang-en">Restoration and component replacement</li>
+            <li class="lang-de">Technische Anpassungen und Aufrüstung bestehender Systeme</li><li class="lang-en">Technical modifications and upgrades</li>
+            <li class="lang-de">Ansprechpartner bei technischen Fragen im laufenden Betrieb</li><li class="lang-en">Technical contact for customers during daily operation</li>
           </ul>
         </article>
-
       </div>
-
-      <p class="note lang-de">
-        Welche Arbeiten an einzelnen Robotersystemen übernommen werden können,
-        wird mit den jeweiligen Herstellern und Partnern abgestimmt.
-      </p>
-      <p class="note lang-en">
-        The scope of work on individual robotic systems will be agreed
-        with the relevant manufacturers and partners.
-      </p>
+      <p class="note lang-de">Welche Arbeiten an einzelnen Robotersystemen übernommen werden können, wird mit den jeweiligen Herstellern und Partnern abgestimmt.</p>
+      <p class="note lang-en">The scope of work on individual robotic systems will be agreed with the relevant manufacturers and partners.</p>
     </section>
-
-
-    <!-- GESCHÄFTSKONZEPT -->
 
     <section class="section" id="motivation">
       <div class="section-head">
-        <h3 class="lang-de">Unser Geschäftsmodell</h3>
-        <h3 class="lang-en">Our Business Concept</h3>
-
-        <p class="lang-de">
-          Ein regionaler Ansprechpartner für den Weg vom ersten Gespräch
-          bis zum späteren Service.
-        </p>
-        <p class="lang-en">
-          A regional contact from the first conversation to ongoing service.
-        </p>
+        <h3 class="lang-de">Unser Geschäftsmodell</h3><h3 class="lang-en">Our Business Concept</h3>
+        <p class="lang-de">Ein regionaler Ansprechpartner für den Weg vom ersten Gespräch bis zum späteren Service.</p>
+        <p class="lang-en">A regional contact from the first conversation to ongoing service.</p>
       </div>
-
       <div class="grid2">
-
         <article class="card">
-          <h4 class="lang-de">
-            Passende Systeme statt fester Herstellerbindung
-          </h4>
-          <h4 class="lang-en">
-            Suitable Systems Across Different Brands
-          </h4>
-
-          <p class="lang-de">
-            Nicht jeder Roboter passt zu jeder Aufgabe. Deshalb möchten wir
-            zunächst gemeinsam mit dem Kunden prüfen, welche Arbeiten durch
-            Robotik sinnvoll unterstützt werden können. Anschließend sollen
-            geeignete Systeme verschiedener Hersteller miteinander verglichen
-            werden.
-          </p>
-
-          <p class="lang-en">
-            Not every robot is suitable for every task. We first want to understand
-            where robotics could help, then compare systems from different manufacturers.
-          </p>
-
-          <p class="lang-de">
-            Der Vertrieb soll zunächst auftragsbezogen erfolgen. Größere eigene
-            Warenbestände sind für die Aufbauphase nicht vorgesehen. Beschaffung
-            und Lieferung sollen mit den jeweiligen Herstellern oder Distributoren
-            abgestimmt werden.
-          </p>
-
-          <p class="lang-en">
-            Initially, sales are intended to be based on confirmed customer orders
-            rather than a large stock of equipment. Sourcing and delivery would
-            be coordinated with manufacturers or distributors.
-          </p>
+          <h4 class="lang-de">Passende Systeme statt fester Herstellerbindung</h4><h4 class="lang-en">Suitable Systems Across Different Brands</h4>
+          <p class="lang-de">Nicht jeder Roboter passt zu jeder Aufgabe. Deshalb möchten wir zunächst gemeinsam mit dem Kunden prüfen, welche Arbeiten durch Robotik sinnvoll unterstützt werden können. Anschließend sollen geeignete Systeme verschiedener Hersteller miteinander verglichen werden.</p>
+          <p class="lang-en">Not every robot is suitable for every task. We first want to understand where robotics could help, then compare systems from different manufacturers.</p>
+          <p class="lang-de">Der Vertrieb soll zunächst auftragsbezogen erfolgen. Größere eigene Warenbestände sind für die Aufbauphase nicht vorgesehen. Beschaffung und Lieferung sollen mit den jeweiligen Herstellern oder Distributoren abgestimmt werden.</p>
+          <p class="lang-en">Initially, sales are intended to be based on confirmed customer orders rather than a large stock of equipment. Sourcing and delivery would be coordinated with manufacturers or distributors.</p>
         </article>
-
         <article class="card">
-          <h4 class="lang-de">Betreuung vor Ort</h4>
-          <h4 class="lang-en">On-Site Support</h4>
-
-          <p class="lang-de">
-            Gerade bei professionellen Robotiksystemen endet die Arbeit nicht
-            mit dem Verkauf. Kunden benötigen Unterstützung bei der Einführung,
-            bei technischen Fragen und später bei Wartungen oder Reparaturen.
-          </p>
-
-          <p class="lang-en">
-            Professional robotics often require support beyond the sale.
-            Customers may need help during introduction, with technical questions
-            and later with maintenance or repairs.
-          </p>
-
-          <p class="lang-de">
-            Dafür ist perspektivisch ein mobiles Servicefahrzeug mit Werkstatt-
-            und Präsentationsmöglichkeiten geplant. Es soll für Kundentermine,
-            Vorführungen, Schulungen und technische Einsätze genutzt werden.
-          </p>
-
-          <p class="lang-en">
-            We plan to develop a mobile service vehicle with workspace and
-            presentation equipment for customer appointments, demonstrations,
-            training and technical work.
-          </p>
+          <h4 class="lang-de">Betreuung vor Ort</h4><h4 class="lang-en">On-Site Support</h4>
+          <p class="lang-de">Gerade bei professionellen Robotiksystemen endet die Arbeit nicht mit dem Verkauf. Kunden benötigen Unterstützung bei der Einführung, bei technischen Fragen und später bei Wartungen oder Reparaturen.</p>
+          <p class="lang-en">Professional robotics often require support beyond the sale. Customers may need help during introduction, with technical questions and later with maintenance or repairs.</p>
+          <p class="lang-de">Dafür ist perspektivisch ein mobiles Servicefahrzeug mit Werkstatt- und Präsentationsmöglichkeiten geplant. Es soll für Kundentermine, Vorführungen, Schulungen und technische Einsätze genutzt werden.</p>
+          <p class="lang-en">We plan to develop a mobile service vehicle with workspace and presentation equipment for customer appointments, demonstrations, training and technical work.</p>
         </article>
-
       </div>
     </section>
-
-
-    <!-- GRÜNDER UND TEAM -->
 
     <section class="section" id="team">
       <div class="section-head">
-        <h3 class="lang-de">Gründer &amp; Team</h3>
-        <h3 class="lang-en">Founder &amp; Team</h3>
-
-        <p class="lang-de">
-          Technische Erfahrung und Kenntnisse aus Digitalisierung und Projektarbeit.
-        </p>
-        <p class="lang-en">
-          Technical experience combined with digitalisation and project work.
-        </p>
+        <h3 class="lang-de">Gründer &amp; Team</h3><h3 class="lang-en">Founder &amp; Team</h3>
+        <p class="lang-de">Technische Erfahrung und Kenntnisse aus Digitalisierung und Projektarbeit.</p>
+        <p class="lang-en">Technical experience combined with digitalisation and project work.</p>
       </div>
-
       <div class="grid2">
-
         <article class="card">
           <h4>Florian Omonsky</h4>
-
-          <p class="lang-de">
-            Florian ist gelernter Mechatroniker und staatlich geprüfter Techniker
-            der Fachrichtung Elektrotechnik mit Schwerpunkt Energietechnik und
-            Prozessautomatisierung. Er verfügt über viele Jahre Erfahrung im
-            technischen Service und Außendienst, insbesondere bei Wartung,
-            Fehlerdiagnose, Reparatur und Inbetriebnahme technischer Anlagen.
-          </p>
-
-          <p class="lang-en">
-            Florian trained as a mechatronics technician and is a state-certified
-            electrical engineering technician specialising in energy technology
-            and process automation. He has extensive field service experience
-            in maintenance, diagnostics, repair and commissioning.
-          </p>
+          <p class="lang-de">Florian ist gelernter Mechatroniker und staatlich geprüfter Techniker der Fachrichtung Elektrotechnik mit Schwerpunkt Energietechnik und Prozessautomatisierung. Er verfügt über viele Jahre Erfahrung im technischen Service und Außendienst, insbesondere bei Wartung, Fehlerdiagnose, Reparatur und Inbetriebnahme technischer Anlagen.</p>
+          <p class="lang-en">Florian trained as a mechatronics technician and is a state-certified electrical engineering technician specialising in energy technology and process automation. He has extensive field service experience in maintenance, diagnostics, repair and commissioning.</p>
         </article>
-
         <article class="card">
           <h4>Sarah Omonsky</h4>
-
-          <p class="lang-de">
-            Sarah ergänzt den technischen Bereich durch ihre Ausbildung im
-            Digitalisierungsmanagement und ihre Qualifikation als
-            Projektbeauftragte (DEKRA). Sie bringt Kenntnisse in der Aufnahme
-            und Verbesserung von Abläufen, in der Projektarbeit sowie in der
-            Entwicklung digitaler Lösungen mit.
-          </p>
-
-          <p class="lang-en">
-            Sarah contributes a background in digitalisation management and
-            a DEKRA project qualification. Her experience includes examining
-            and improving workflows, project work and developing digital solutions.
-          </p>
+          <p class="lang-de">Sarah ergänzt den technischen Bereich durch ihre Ausbildung im Digitalisierungsmanagement und ihre Qualifikation als Projektbeauftragte (DEKRA). Sie bringt Kenntnisse in der Aufnahme und Verbesserung von Abläufen, in der Projektarbeit sowie in der Entwicklung digitaler Lösungen mit.</p>
+          <p class="lang-en">Sarah contributes a background in digitalisation management and a DEKRA project qualification. Her experience includes examining and improving workflows, project work and developing digital solutions.</p>
         </article>
-
       </div>
     </section>
-
-
-    <!-- BERUFSERFAHRUNG -->
 
     <section class="section" id="experience">
       <div class="section-head">
-        <h3 class="lang-de">Florians Berufserfahrung</h3>
-        <h3 class="lang-en">Florian's Professional Experience</h3>
-
-        <p class="lang-de">
-          Technischer Außendienst, Reparatur und Instandhaltung bilden
-          die Grundlage für das geplante Serviceangebot.
-        </p>
-        <p class="lang-en">
-          Field service, repair and maintenance provide the foundation
-          for our planned technical offering.
-        </p>
+        <h3 class="lang-de">Florians Berufserfahrung</h3><h3 class="lang-en">Florian's Professional Experience</h3>
+        <p class="lang-de">Technischer Außendienst, Reparatur und Instandhaltung bilden die Grundlage für das geplante Serviceangebot.</p>
+        <p class="lang-en">Field service, repair and maintenance provide the foundation for our planned technical offering.</p>
       </div>
-
       <div class="timeline">
-
         <div class="t-item">
           <div class="t-date">seit 01/2021</div>
-
           <div class="t-card">
-            <strong class="lang-de">Servicetechniker Ladeinfrastruktur</strong>
-            <strong class="lang-en">Charging Infrastructure Service Technician</strong>
-
-            <div class="sub">
-              Tesla – Supercharger / Schnellladesysteme
-            </div>
-
+            <strong class="lang-de">Servicetechniker Ladeinfrastruktur</strong><strong class="lang-en">Charging Infrastructure Service Technician</strong>
+            <div class="sub">Tesla – Supercharger / Schnellladesysteme</div>
             <ul class="clean">
-              <li class="lang-de">
-                Wartung, Fehleranalyse und Reparatur von Ladeinfrastruktur
-              </li>
-              <li class="lang-en">
-                Maintenance, troubleshooting and repair of charging infrastructure
-              </li>
-
-              <li class="lang-de">
-                Technische Einsätze und Störungsbehebung vor Ort
-              </li>
-              <li class="lang-en">
-                Technical field work and fault resolution on-site
-              </li>
+              <li class="lang-de">Wartung, Fehleranalyse und Reparatur von Ladeinfrastruktur</li><li class="lang-en">Maintenance, troubleshooting and repair of charging infrastructure</li>
+              <li class="lang-de">Technische Einsätze und Störungsbehebung vor Ort</li><li class="lang-en">Technical field work and fault resolution on-site</li>
             </ul>
           </div>
         </div>
-
         <div class="t-item">
           <div class="t-date">2012–2020</div>
-
           <div class="t-card">
-            <strong class="lang-de">Mechatroniker / Servicetechniker</strong>
-            <strong class="lang-en">Mechatronics / Service Technician</strong>
-
-            <div class="sub">
-              Böcker Maschinenwerke GmbH, Kassel
-            </div>
-
+            <strong class="lang-de">Mechatroniker / Servicetechniker</strong><strong class="lang-en">Mechatronics / Service Technician</strong>
+            <div class="sub">Böcker Maschinenwerke GmbH, Kassel</div>
             <ul class="clean">
-              <li class="lang-de">
-                Wartung und Reparatur von Hebe- und Aufzugsanlagen
-              </li>
-              <li class="lang-en">
-                Maintenance and repair of lifting systems
-              </li>
-
-              <li class="lang-de">
-                Fehlersuche an elektrischen und hydraulischen Systemen
-              </li>
-              <li class="lang-en">
-                Troubleshooting electrical and hydraulic systems
-              </li>
-
-              <li class="lang-de">
-                Technische Kundenbetreuung vor Ort
-              </li>
-              <li class="lang-en">
-                On-site technical customer service
-              </li>
+              <li class="lang-de">Wartung und Reparatur von Hebe- und Aufzugsanlagen</li><li class="lang-en">Maintenance and repair of lifting systems</li>
+              <li class="lang-de">Fehlersuche an elektrischen und hydraulischen Systemen</li><li class="lang-en">Troubleshooting electrical and hydraulic systems</li>
+              <li class="lang-de">Technische Kundenbetreuung vor Ort</li><li class="lang-en">On-site technical customer service</li>
             </ul>
           </div>
         </div>
-
         <div class="t-item">
           <div class="t-date">2011</div>
-
           <div class="t-card">
-            <strong class="lang-de">Instandhaltung &amp; Schaltschrankbau</strong>
-            <strong class="lang-en">Maintenance &amp; Control Cabinet Assembly</strong>
-
-            <div class="sub">
-              Finoba Automotive / Bombardier (über Team Time), Kassel
-            </div>
-
+            <strong class="lang-de">Instandhaltung &amp; Schaltschrankbau</strong><strong class="lang-en">Maintenance &amp; Control Cabinet Assembly</strong>
+            <div class="sub">Finoba Automotive / Bombardier (über Team Time), Kassel</div>
             <ul class="clean">
-              <li class="lang-de">
-                Industrielle Instandhaltung und Schaltschrankverkabelung
-              </li>
-              <li class="lang-en">
-                Industrial maintenance and control cabinet wiring
-              </li>
+              <li class="lang-de">Industrielle Instandhaltung und Schaltschrankverkabelung</li><li class="lang-en">Industrial maintenance and control cabinet wiring</li>
             </ul>
           </div>
         </div>
-
       </div>
     </section>
-
-
-    <!-- QUALIFIKATIONEN -->
 
     <section class="section" id="education">
       <div class="section-head">
-        <h3 class="lang-de">Ausbildung &amp; Qualifikationen</h3>
-        <h3 class="lang-en">Education &amp; Qualifications</h3>
-
-        <p class="lang-de">
-          Die fachlichen Grundlagen hinter OMONYX ROBOTICS.
-        </p>
-        <p class="lang-en">
-          The qualifications behind OMONYX ROBOTICS.
-        </p>
+        <h3 class="lang-de">Ausbildung &amp; Qualifikationen</h3><h3 class="lang-en">Education &amp; Qualifications</h3>
+        <p class="lang-de">Die fachlichen Grundlagen hinter OMONYX ROBOTICS.</p>
+        <p class="lang-en">The qualifications behind OMONYX ROBOTICS.</p>
       </div>
-
       <div class="timeline">
-
         <div class="t-item">
           <div class="t-date">2025</div>
-
           <div class="t-card">
-            <strong class="lang-de">
-              Florian – Staatlich geprüfter Techniker
-            </strong>
-            <strong class="lang-en">
-              Florian – State-Certified Technician
-            </strong>
-
-            <div class="sub lang-de">
-              Elektrotechnik · Energietechnik und Prozessautomatisierung
-            </div>
-            <div class="sub lang-en">
-              Electrical Engineering · Energy Technology and Process Automation
-            </div>
-
-            <p class="lang-de">
-              Oskar-von-Miller-Schule, Kassel. Zusätzlich berufs- und
-              arbeitspädagogische Eignung (AEVO).
-            </p>
-            <p class="lang-en">
-              Oskar-von-Miller School, Kassel. Also holds the AEVO training
-              qualification.
-            </p>
+            <strong class="lang-de">Florian – Staatlich geprüfter Techniker</strong><strong class="lang-en">Florian – State-Certified Technician</strong>
+            <div class="sub lang-de">Elektrotechnik · Energietechnik und Prozessautomatisierung</div>
+            <div class="sub lang-en">Electrical Engineering · Energy Technology and Process Automation</div>
+            <p class="lang-de">Oskar-von-Miller-Schule, Kassel. Zusätzlich berufs- und arbeitspädagogische Eignung (AEVO).</p>
+            <p class="lang-en">Oskar-von-Miller School, Kassel. Also holds the AEVO training qualification.</p>
           </div>
         </div>
-
         <div class="t-item">
           <div class="t-date">2007–2011</div>
-
           <div class="t-card">
-            <strong class="lang-de">
-              Florian – Ausbildung zum Mechatroniker
-            </strong>
-            <strong class="lang-en">
-              Florian – Apprenticeship in Mechatronics
-            </strong>
-
-            <div class="sub">
-              Reitz Industrieservice und Wartung, Kassel
-            </div>
-
-            <p class="lang-de">
-              Grundlagen in Mechanik, Elektrotechnik und Steuerungstechnik.
-            </p>
-            <p class="lang-en">
-              Foundation in mechanics, electrical engineering and control systems.
-            </p>
+            <strong class="lang-de">Florian – Ausbildung zum Mechatroniker</strong><strong class="lang-en">Florian – Apprenticeship in Mechatronics</strong>
+            <div class="sub">Reitz Industrieservice und Wartung, Kassel</div>
+            <p class="lang-de">Grundlagen in Mechanik, Elektrotechnik und Steuerungstechnik.</p>
+            <p class="lang-en">Foundation in mechanics, electrical engineering and control systems.</p>
           </div>
         </div>
-
         <div class="t-item">
-          <div class="t-date lang-de">Weiterbildung</div>
-          <div class="t-date lang-en">Training</div>
-
+          <div class="t-date lang-de">Weiterbildung</div><div class="t-date lang-en">Training</div>
           <div class="t-card">
-            <strong class="lang-de">
-              Sarah – Digitalisierung &amp; Projektarbeit
-            </strong>
-            <strong class="lang-en">
-              Sarah – Digitalisation &amp; Project Work
-            </strong>
-
-            <p class="lang-de">
-              Ausbildung im Digitalisierungsmanagement und Qualifikation
-              als Projektbeauftragte (DEKRA).
-            </p>
-            <p class="lang-en">
-              Training in digitalisation management and a DEKRA
-              project qualification.
-            </p>
+            <strong class="lang-de">Sarah – Digitalisierung &amp; Projektarbeit</strong><strong class="lang-en">Sarah – Digitalisation &amp; Project Work</strong>
+            <p class="lang-de">Ausbildung im Digitalisierungsmanagement und Qualifikation als Projektbeauftragte (DEKRA).</p>
+            <p class="lang-en">Training in digitalisation management and a DEKRA project qualification.</p>
           </div>
         </div>
-
       </div>
     </section>
-
-
-    <!-- VORHABEN UND PROJEKTE -->
 
     <section class="section" id="projects">
       <div class="section-head">
-        <h3 class="lang-de">Vorhaben &amp; Projekte</h3>
-        <h3 class="lang-en">Plans &amp; Projects</h3>
-
-        <p class="lang-de">
-          Was bisher ausgearbeitet wurde und was noch geplant ist.
-        </p>
-        <p class="lang-en">
-          Work already completed and the next planned steps.
-        </p>
+        <h3 class="lang-de">Vorhaben &amp; Projekte</h3><h3 class="lang-en">Plans &amp; Projects</h3>
+        <p class="lang-de">Was bisher ausgearbeitet wurde und was noch geplant ist.</p>
+        <p class="lang-en">Work already completed and the next planned steps.</p>
       </div>
-
       <div class="grid2">
-
         <article class="card">
-          <h4 class="lang-de">
-            Regionales Vertriebs- und Servicekonzept
-          </h4>
-          <h4 class="lang-en">
-            Regional Sales &amp; Service Concept
-          </h4>
-
-          <p class="lang-de">
-            Für die Region rund um Kassel wurde ein Konzept für Beratung,
-            auftragsbezogenen Vertrieb und technischen Service erarbeitet.
-            Eine Markt- und Wettbewerbsanalyse wird derzeit vorbereitet
-            beziehungsweise überarbeitet.
-          </p>
-
-          <p class="lang-en">
-            A regional concept has been developed for consulting,
-            order-based sales and technical service around Kassel.
-            Market and competitor research is being prepared and revised.
-          </p>
-
-          <div class="tags">
-            <span class="tag lang-de">Region Kassel</span>
-            <span class="tag lang-en">Kassel Region</span>
-            <span class="tag lang-de">Herstellerübergreifend</span>
-            <span class="tag lang-en">Multi-Brand</span>
-          </div>
+          <h4 class="lang-de">Regionales Vertriebs- und Servicekonzept</h4><h4 class="lang-en">Regional Sales &amp; Service Concept</h4>
+          <p class="lang-de">Für die Region rund um Kassel wurde ein Konzept für Beratung, auftragsbezogenen Vertrieb und technischen Service erarbeitet. Eine Markt- und Wettbewerbsanalyse wird derzeit vorbereitet beziehungsweise überarbeitet.</p>
+          <p class="lang-en">A regional concept has been developed for consulting, order-based sales and technical service around Kassel. Market and competitor research is being prepared and revised.</p>
+          <div class="tags"><span class="tag lang-de">Region Kassel</span><span class="tag lang-en">Kassel Region</span><span class="tag lang-de">Herstellerübergreifend</span><span class="tag lang-en">Multi-Brand</span></div>
         </article>
-
         <article class="card">
-          <h4 class="lang-de">Mobiles Demo- und Servicefahrzeug</h4>
-          <h4 class="lang-en">Mobile Demo &amp; Service Vehicle</h4>
-
-          <p class="lang-de">
-            Ein Fahrzeug mit Arbeitsfläche, Werkzeugen und einer
-            Präsentationsmöglichkeit ist als spätere Grundlage für
-            Vorführungen, Schulungen, Wartungen und Reparaturen vor Ort geplant.
-          </p>
-
-          <p class="lang-en">
-            A vehicle with workspace, tools and presentation equipment
-            is planned for future on-site demonstrations, training,
-            maintenance and repairs.
-          </p>
-
-          <div class="tags">
-            <span class="tag lang-de">In Planung</span>
-            <span class="tag lang-en">Planned</span>
-            <span class="tag lang-de">Vor-Ort-Service</span>
-            <span class="tag lang-en">On-Site Service</span>
-          </div>
+          <h4 class="lang-de">Mobiles Demo- und Servicefahrzeug</h4><h4 class="lang-en">Mobile Demo &amp; Service Vehicle</h4>
+          <p class="lang-de">Ein Fahrzeug mit Arbeitsfläche, Werkzeugen und einer Präsentationsmöglichkeit ist als spätere Grundlage für Vorführungen, Schulungen, Wartungen und Reparaturen vor Ort geplant.</p>
+          <p class="lang-en">A vehicle with workspace, tools and presentation equipment is planned for future on-site demonstrations, training, maintenance and repairs.</p>
+          <div class="tags"><span class="tag lang-de">In Planung</span><span class="tag lang-en">Planned</span><span class="tag lang-de">Vor-Ort-Service</span><span class="tag lang-en">On-Site Service</span></div>
         </article>
-
         <article class="card">
-          <h4 class="lang-de">
-            Technikerprojekt: Energie &amp; Steuerungssysteme
-          </h4>
-          <h4 class="lang-en">
-            Technical Project: Energy &amp; Controls
-          </h4>
-
-          <p class="lang-de">
-            Im Rahmen von Florians Technikerweiterbildung wurden Lösungen
-            mit Wallboxen, Photovoltaik und intelligenter Beleuchtung
-            geplant und dokumentiert.
-          </p>
-
-          <p class="lang-en">
-            During Florian's technician qualification, systems involving
-            charging stations, photovoltaics and smart lighting were
-            planned and documented.
-          </p>
-
-          <div class="tags">
-            <span class="tag lang-de">Technikerprojekt</span>
-            <span class="tag lang-en">Technical Project</span>
-            <span class="tag">Elektrotechnik</span>
-          </div>
+          <h4 class="lang-de">Technikerprojekt: Energie &amp; Steuerungssysteme</h4><h4 class="lang-en">Technical Project: Energy &amp; Controls</h4>
+          <p class="lang-de">Im Rahmen von Florians Technikerweiterbildung wurden Lösungen mit Wallboxen, Photovoltaik und intelligenter Beleuchtung geplant und dokumentiert.</p>
+          <p class="lang-en">During Florian's technician qualification, systems involving charging stations, photovoltaics and smart lighting were planned and documented.</p>
+          <div class="tags"><span class="tag lang-de">Technikerprojekt</span><span class="tag lang-en">Technical Project</span><span class="tag">Elektrotechnik</span></div>
         </article>
-
         <article class="card">
-          <h4 class="lang-de">
-            Digitalisierungsprojekt: Onboarding
-          </h4>
-          <h4 class="lang-en">
-            Digitalisation Project: Onboarding
-          </h4>
-
-          <p class="lang-de">
-            Sarah hat im Rahmen ihrer Ausbildung an einem digitalen
-            Onboarding-Projekt gearbeitet – von der Betrachtung bestehender
-            Abläufe bis zur Umsetzung eines App-Prototyps.
-          </p>
-
-          <p class="lang-en">
-            As part of her training, Sarah worked on a digital onboarding
-            project, from analysing workflows to implementing an app prototype.
-          </p>
-
-          <div class="tags">
-            <span class="tag lang-de">Prozessarbeit</span>
-            <span class="tag lang-en">Process Work</span>
-            <span class="tag lang-de">App-Prototyp</span>
-            <span class="tag lang-en">App Prototype</span>
-          </div>
+          <h4 class="lang-de">Digitalisierungsprojekt: Onboarding</h4><h4 class="lang-en">Digitalisation Project: Onboarding</h4>
+          <p class="lang-de">Sarah hat im Rahmen ihrer Ausbildung an einem digitalen Onboarding-Projekt gearbeitet – von der Betrachtung bestehender Abläufe bis zur Umsetzung eines App-Prototyps.</p>
+          <p class="lang-en">As part of her training, Sarah worked on a digital onboarding project, from analysing workflows to implementing an app prototype.</p>
+          <div class="tags"><span class="tag lang-de">Prozessarbeit</span><span class="tag lang-en">Process Work</span><span class="tag lang-de">App-Prototyp</span><span class="tag lang-en">App Prototype</span></div>
         </article>
-
       </div>
     </section>
-
-
-    <!-- KONTAKT -->
 
     <section class="section" id="contact">
       <div class="section-head">
-        <h3 class="lang-de">Kontakt &amp; Partnerschaften</h3>
-        <h3 class="lang-en">Contact &amp; Partnerships</h3>
-
-        <p class="lang-de">
-          Wir freuen uns über Gespräche mit Herstellern,
-          Distributoren und möglichen Kunden.
-        </p>
-        <p class="lang-en">
-          We welcome discussions with manufacturers,
-          distributors and potential customers.
-        </p>
+        <h3 class="lang-de">Kontakt &amp; Partnerschaften</h3><h3 class="lang-en">Contact &amp; Partnerships</h3>
+        <p class="lang-de">Wir freuen uns über Gespräche mit Herstellern, Distributoren und möglichen Kunden.</p>
+        <p class="lang-en">We welcome discussions with manufacturers, distributors and potential customers.</p>
       </div>
-
       <div class="contact-grid">
-
         <div class="card">
-          <h4 class="lang-de">Kontaktdaten</h4>
-          <h4 class="lang-en">Contact Details</h4>
-
-          <div class="contact-row">
-            <div class="icon">👤</div>
-            <div>
-              <small class="lang-de">Unternehmen</small>
-              <small class="lang-en">Company</small>
-              <b>OMONYX ROBOTICS</b>
-            </div>
-          </div>
-
-          <div class="contact-row">
-            <div class="icon">📍</div>
-            <div>
-              <small class="lang-de">Standort</small>
-              <small class="lang-en">Location</small>
-              <b>Kassel</b>
-            </div>
-          </div>
-
-          <div class="contact-row">
-            <div class="icon">📞</div>
-            <div>
-              <small class="lang-de">Telefon</small>
-              <small class="lang-en">Phone</small>
-              <b>
-                <a href="tel:+491795980009">0179 5980009</a>
-              </b>
-            </div>
-          </div>
-
-          <div class="contact-row">
-            <div class="icon">✉️</div>
-            <div>
-              <small>E-Mail</small>
-              <b class="lang-de">Geschäftliche E-Mail-Adresse folgt</b>
-              <b class="lang-en">Business email coming soon</b>
-            </div>
-          </div>
-
-          <div class="actions" style="margin-top:16px">
-            <a class="btn primary" href="tel:+491795980009">
-              <span class="lang-de">Anrufen</span>
-              <span class="lang-en">Call</span>
-              <span>→</span>
-            </a>
-          </div>
+          <h4 class="lang-de">Kontaktdaten</h4><h4 class="lang-en">Contact Details</h4>
+          <div class="contact-row"><div class="icon">👤</div><div><small class="lang-de">Unternehmen</small><small class="lang-en">Company</small><b>OMONYX ROBOTICS</b></div></div>
+          <div class="contact-row"><div class="icon">📍</div><div><small class="lang-de">Standort</small><small class="lang-en">Location</small><b>Kassel</b></div></div>
+          <div class="contact-row"><div class="icon">📞</div><div><small class="lang-de">Telefon</small><small class="lang-en">Phone</small><b><a href="tel:+491795980009">0179 5980009</a></b></div></div>
+          <div class="contact-row"><div class="icon">✉️</div><div><small>E-Mail</small><b><a href="mailto:contact@omonyxrobotics.com">contact@omonyxrobotics.com</a></b></div></div>
+          <div class="actions" style="margin-top:16px"><a class="btn primary" href="tel:+491795980009"><span class="lang-de">Anrufen</span><span class="lang-en">Call</span><span>→</span></a></div>
         </div>
-
         <div class="card">
-          <h4 class="lang-de">Standort – Kassel</h4>
-          <h4 class="lang-en">Location – Kassel</h4>
-
-          <p class="lang-de" style="margin-top:-2px;color:var(--muted)">
-            Von Kassel aus soll zunächst ein Gebiet mit einem Radius
-            von etwa 250 km betreut werden.
-          </p>
-
-          <p class="lang-en" style="margin-top:-2px;color:var(--muted)">
-            The initial service area is planned to cover approximately
-            250 km around Kassel.
-          </p>
-
-          <iframe
-            class="map"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Kassel&amp;output=embed"
-            title="Google Maps – Kassel">
-          </iframe>
+          <h4 class="lang-de">Standort – Kassel</h4><h4 class="lang-en">Location – Kassel</h4>
+          <p class="lang-de" style="margin-top:-2px;color:var(--muted)">Von Kassel aus soll zunächst ein Gebiet mit einem Radius von etwa 150 km betreut werden.</p>
+          <p class="lang-en" style="margin-top:-2px;color:var(--muted)">The initial service area is planned to cover approximately 150 km around Kassel.</p>
+          <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Kassel&amp;output=embed" title="Google Maps – Kassel"></iframe>
         </div>
-
       </div>
     </section>
 
-
-    <!-- FOOTER -->
-
     <footer>
-      <span class="lang-de">
-        © <span id="year"></span> OMONYX ROBOTICS · Unternehmen im Aufbau
-      </span>
-      <span class="lang-en">
-        © <span id="year2"></span> OMONYX ROBOTICS · Business in Development
-      </span>
+      <span class="lang-de">© <span id="year"></span> OMONYX ROBOTICS · Unternehmen im Aufbau</span>
+      <span class="lang-en">© <span id="year2"></span> OMONYX ROBOTICS · Business in Development</span>
     </footer>
-
   </main>
-
-
-  <!-- SPRACHUMSCHALTUNG -->
-
   <script>
-    document.getElementById('year').textContent =
-      new Date().getFullYear();
-
-    document.getElementById('year2').textContent =
-      new Date().getFullYear();
-
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year2').textContent = new Date().getFullYear();
     function switchLang(lang) {
       document.body.setAttribute('data-lang', lang);
-
       document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle(
-          'active',
-          btn.getAttribute('data-lang-btn') === lang
-        );
+        btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
       });
-
-      try {
-        localStorage.setItem('preferredLang', lang);
-      } catch(e) {}
+      try { localStorage.setItem('preferredLang', lang); } catch(e) {}
     }
-
     let savedLang = 'de';
-
-    try {
-      savedLang =
-        localStorage.getItem('preferredLang') || 'de';
-    } catch(e) {}
-
+    try { savedLang = localStorage.getItem('preferredLang') || 'de'; } catch(e) {}
     switchLang(savedLang === 'en' ? 'en' : 'de');
   </script>
-
 </body>
 </html>
